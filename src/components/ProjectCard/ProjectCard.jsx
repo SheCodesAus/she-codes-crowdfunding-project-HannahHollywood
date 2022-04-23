@@ -11,7 +11,7 @@ function ProjectCard( {projectData} ) {
                 <img src={projectData.image} alt="the project"/>
                 <h3>{projectData.title}</h3>
             </Link>
-            <h3>{projectData.id}</h3>
+            {/* <h3>{projectData.id}</h3> */}
          </div>
     );
 }
