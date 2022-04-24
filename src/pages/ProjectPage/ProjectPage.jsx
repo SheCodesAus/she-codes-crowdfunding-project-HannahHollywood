@@ -1,9 +1,12 @@
 import React, { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
 
+// Styles
+import "./ProjectPage.css";
+
 // Components
-import PledgeUser from "../components/ProjectPageComponents/PledgeUser/PledgeUser";
-import ProjectOwner from "../components/ProjectPageComponents/ProjectOwner/ProjectOwner";
+import PledgeUser from "../../components/ProjectPageComponents/PledgeUser/PledgeUser";
+import ProjectOwner from "../../components/ProjectPageComponents/ProjectOwner/ProjectOwner";
 
 function ProjectPage() {
     // State
@@ -27,21 +30,6 @@ function ProjectPage() {
                 // reducing your list to an output value
                 .reduce ((sum, pledge) => sum + pledge.amount, 0));
         })
-
-        // First attempt - didn't realise could use pledges stuff from below
-        // .then(
-
-        // fetch(`${process.env.REACT_APP_API_URL}pledges`)
-        // .then((results) => {
-        //     return results.json();
-        // })
-        // .then((data) => {
-        //     setProjectPledgeAmount(data
-        //         .filter (pledge => pledge.project_id == id)
-        //         // '.reduce' is a JS aggregator that emulates '.sum'
-        //         .reduce ((sum, pledge) => sum + pledge.amount, 0));
-        // }));
-
     }, [id]);
 
     // Loading State
@@ -53,16 +41,19 @@ function ProjectPage() {
     // Normal State
     return (
     <div>
-        <h2>{projectData.title} - <ProjectOwner owner={projectData.owner} /></h2>
-        <p>
-            <ul>
-                <li>Image Here {projectData.image}</li>
-                <li>Description: {projectData.description}</li>
-                <li>Fundraising Goal: ${projectData.goal}</li>
-                <li>Open for Pledging Since: {projectData.date_created}</li>
-                <li>Closing Date: {projectData.closing_date}</li>
-            </ul>
-        </p>
+        <h2>{projectData.title}</h2> 
+        <h3>Invented by: <ProjectOwner owner={projectData.owner} /> on {projectData.date_created}</h3>
+        <div>
+            <p>
+                <img className="project-img" src={projectData.image} alt="project img"/>
+                <ul>
+                    <li>Description: {projectData.description}</li>
+                    <li>Invention Type: {projectData.category}</li>
+                    <li>Fundraising Goal: ${projectData.goal}</li>
+                    <li>Closing Date: {projectData.closing_date}</li>
+                </ul>
+            </p>
+        </div>
 
         <h3>Total Raised: ${projectPledgeAmount} Inventi-Cents!</h3>
         <h3>{projectData.is_open
