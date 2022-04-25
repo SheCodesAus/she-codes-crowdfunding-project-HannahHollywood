@@ -3,6 +3,7 @@ import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 
 // Components
 import Nav from "./components/Nav/Nav";
+// import { MenuItems } from "./components/Nav/MenuItems";
 
 // Pages
 import HomePage from "./pages/HomePage/HomePage";

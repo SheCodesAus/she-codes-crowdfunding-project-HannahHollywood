@@ -24,7 +24,8 @@ function PledgeUser({amount, supporter, comment}) {
     // Normal State
     return (
             <li>
-                {amount} from {supporterData.username} "{comment}"
+                ${amount} from {supporterData.username} 
+                <br></br>"{comment}"
             </li>
             
     );
