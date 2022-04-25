@@ -7,6 +7,7 @@ import "./ProjectPage.css";
 // Components
 import PledgeUser from "../../components/ProjectPageComponents/PledgeUser/PledgeUser";
 import ProjectOwner from "../../components/ProjectPageComponents/ProjectOwner/ProjectOwner";
+// import ProgressBar from "../../components/ProjectPageComponents/ProgressBar/ProgressBar";
 
 function ProjectPage() {
     // State
@@ -40,10 +41,13 @@ function ProjectPage() {
 
     // Normal State
     return (
-    <div>
-        <h2>{projectData.title}</h2> 
-        <h3>Invented by: <ProjectOwner owner={projectData.owner} /> on {projectData.date_created}</h3>
-        <div>
+    <div className="project-wrapper">
+        <div id="project-title-and-owner">
+            <h2>{projectData.title}</h2> 
+            <h3>Invented by: <ProjectOwner owner={projectData.owner} /> on {projectData.date_created}</h3>
+        </div>
+        
+        <div className="project-details">
             <p>
                 <img className="project-img" src={projectData.image} alt="project img"/>
                 <ul>
@@ -55,25 +59,29 @@ function ProjectPage() {
             </p>
         </div>
 
-        <h3>Total Raised: ${projectPledgeAmount} Inventi-Cents!</h3>
-        <h3>{projectData.is_open
-        // '? :' are ternary oprators
-            // '?' is if true
-            // ':' is if false
-            // what comes before the ? is the predicate aka 'what you write in the if statement'
-            ? projectData.goal > projectPledgeAmount
-                ? "Currently Accepting Pledges"
-                : "We made a lot of money, pls gib moar tho"
-            : "No Longer Accepting Pledges"}</h3>
+        <div className="pledges-total">
+            <h3>Total Raised: ${projectPledgeAmount} Inventi-Cents!</h3>
+            <h3>{projectData.is_open
+            // '? :' are ternary oprators
+                // '?' is if true
+                // ':' is if false
+                // what comes before the ? is the predicate aka 'what you write in the if statement'
+                ? projectData.goal > projectPledgeAmount
+                    ? "Currently Accepting Pledges"
+                    : "We made a lot of money, please give more though 👀"
+                : "Invention has been built."}</h3>
+        </div>
 
-        <h3>Pledges:</h3>
-        <ul>
-        {projectData.pledges.map((pledgeData, key) => {
-            return (
-                <PledgeUser amount={pledgeData.amount} supporter={pledgeData.supporter} comment={pledgeData.comment} />
-            );
-        })}
-        </ul>
+        <div className="pledges-amounts-comments">
+            <h3>Pledges:</h3>
+            <ul>
+            {projectData.pledges.map((pledgeData, key) => {
+                return (
+                    <PledgeUser amount={pledgeData.amount} supporter={pledgeData.supporter} comment={pledgeData.comment} />
+                );
+            })}
+            </ul>
+        </div>
     </div>
     );
 }

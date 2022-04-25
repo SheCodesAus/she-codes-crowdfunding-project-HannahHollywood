@@ -1,4 +1,28 @@
-.project-img {
-  width: 20rem;
-  border: 5px solid green;
+.homepage-wrapper {
+  text-align: -webkit-center;
+}
+
+#welcome-text {
+  align-items: center; 
+  justify-content: center;
+  width: 50%;
+  text-decoration: none;
+  font-size: 20px;
+  margin: 10px;
+}
+#logo-img {
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: auto;
+}
+
+#intro-text {
+  align-items: center;
+}
+
+#project-list {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
 }
