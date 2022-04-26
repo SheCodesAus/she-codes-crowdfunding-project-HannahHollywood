@@ -87,3 +87,9 @@ function ProjectPage() {
 }
 
 export default ProjectPage;
+
+// NOTES:
+
+//  CHECK IF THAT ITEM IS IN LOCAL STORAGE
+//  IF IT IS - THEN LET THEM PLEDGE
+//  IF IT'S NOT IN THE LOCAL STORAGE, THEN LINK TO GO BACK TO THE LOGIN/SIGN UP

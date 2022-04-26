@@ -20,7 +20,7 @@ class Nav extends Component {
     render() {
         return(
             <nav className="NavbarItems">
-                <Link className="navbar-logo" to="/"><h1><span>Fund</span>-Inator! <i class="fa fa-robot"></i></h1></Link>
+                <Link className="navbar-logo" to="/"><h1>The <span>Fund</span>-Inator! <i class="fa fa-robot"></i></h1></Link>
                 
                 <div className="menu-icon" onClick={this.handleClick}>
                     <li className={
