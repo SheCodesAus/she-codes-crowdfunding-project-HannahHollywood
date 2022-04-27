@@ -8,6 +8,7 @@ import Nav from "./components/Nav/Nav";
 import HomePage from "./pages/HomePage/HomePage";
 import ProjectPage from "./pages/ProjectPage/ProjectPage";
 import LoginPage from "./pages/LoginPage/LoginPage";
+import PledgePage from "./pages/PledgePage/PledgePage";
 
 // Styles
 import "./App.css";
@@ -19,6 +20,7 @@ function App() {
         <Nav />
         <Routes>
           <Route path="/project/:id" element={<ProjectPage />} />
+          <Route path="/pledges/" element={<PledgePage />} />
           <Route path="/login" element={<LoginPage />} />
           <Route path="/" element={<HomePage />} />
         </Routes>
