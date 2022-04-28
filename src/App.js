@@ -20,7 +20,8 @@ function App() {
         <Nav />
         <Routes>
           <Route path="/project/:id" element={<ProjectPage />} />
-          <Route path="/pledges/" element={<PledgePage />} />
+          {/* <Route path="/pledge/" element={<PledgePage />} /> */}
+          <Route path="/pledges/:id" element={<PledgePage />} />
           <Route path="/login" element={<LoginPage />} />
           <Route path="/" element={<HomePage />} />
         </Routes>

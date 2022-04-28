@@ -4,15 +4,19 @@ import { useParams } from "react-router-dom";
 // Styles
 import "./ProjectPage.css";
 
+// Imports
+import { Link } from "react-router-dom";
+
 // Components
 import PledgeUser from "../../components/ProjectPageComponents/PledgeUser/PledgeUser";
 import ProjectOwner from "../../components/ProjectPageComponents/ProjectOwner/ProjectOwner";
-// import ProgressBar from "../../components/ProjectPageComponents/ProgressBar/ProgressBar";
+import ProgressBar from "../../components/ProjectPageComponents/ProgressBar/ProgressBar";
 
 function ProjectPage() {
     // State
     const [projectData, setProjectData] = useState();
     const [projectPledgeAmount, setProjectPledgeAmount] = useState();
+    const [projectGoalPercentage, setGoalPercentage] = useState();
     
     // Hooks
     const { id } = useParams();
@@ -25,11 +29,16 @@ function ProjectPage() {
         })
         .then((data) => {
             setProjectData(data);
-            setProjectPledgeAmount(data.pledges
+            
+            const totalPledges = data.pledges
                 // eslint-disable-next-line eqeqeq
                 .filter (pledge => pledge.project_id == id)
                 // reducing your list to an output value
-                .reduce ((sum, pledge) => sum + pledge.amount, 0));
+                .reduce ((sum, pledge) => sum + pledge.amount, 0)
+            setProjectPledgeAmount(totalPledges);
+            
+            const goalPercentage = (totalPledges / data.goal) * 100
+            setGoalPercentage(goalPercentage);
         })
     }, [id]);
 
@@ -61,6 +70,9 @@ function ProjectPage() {
 
         <div className="pledges-total">
             <h3>Total Raised: ${projectPledgeAmount} Inventi-Cents!</h3>
+            
+            <ProgressBar completed={projectGoalPercentage} bgcolor={"#6a1b9a"} />
+            
             <h3>{projectData.is_open
             // '? :' are ternary oprators
                 // '?' is if true
@@ -70,6 +82,10 @@ function ProjectPage() {
                     ? "Currently Accepting Pledges"
                     : "We made a lot of money, please give more though 👀"
                 : "Invention has been built."}</h3>
+        </div>
+
+        <div>
+            <button><Link to="/pledges/:id">PLEDGE HERE</Link></button>
         </div>
 
         <div className="pledges-amounts-comments">
