@@ -85,7 +85,7 @@ function ProjectPage() {
         </div>
 
         <div>
-            <button><Link to="/pledges/:id">PLEDGE HERE</Link></button>
+            <button><Link to={`/pledges/${id}`}>PLEDGE HERE</Link></button>
         </div>
 
         <div className="pledges-amounts-comments">

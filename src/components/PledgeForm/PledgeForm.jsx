@@ -4,12 +4,11 @@ import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { useParams } from "react-router-dom";
 
-function PledgeForm() {
+function PledgeForm(pledgeData) {
   // State
-  const [pledge, postPledge] = useState({
-    amount: "",
-    comment: "",
-  });
+  const [pledge, postPledge] = useState(
+    pledgeData.map
+  );
 
   // // Hooks
   const { id } = useParams();
@@ -18,8 +17,8 @@ function PledgeForm() {
   // Actions and Helpers
   const handleChange = (event) => {
     const { id, value } = event.target;
-    postPledge((prevCredentials) => ({
-      ...prevCredentials,
+    postPledge((PledgeData) => ({
+      ...PledgeData,
       [id]: value,
     }));
   };
@@ -51,6 +50,17 @@ function PledgeForm() {
     return (
         <form>
           <div>
+      
+       {/* <div>
+         You are submitting the following:
+         <ul>
+           {Object.entries(pledgeData).map(([amount, value]) => (
+             <li key={amount}><strong>{amount}</strong>:{value.toString()}</li>
+           ))}
+         </ul>
+       </div> */}
+
+
             <label htmlFor="amount">Enter Amount:</label>
             <input
               type="text"

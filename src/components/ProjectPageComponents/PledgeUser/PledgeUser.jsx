@@ -4,8 +4,6 @@ function PledgeUser({amount, supporter, comment}) {
     // State
     const [supporterData, setSupporterData] = useState();
     
-   
-    
     // Actions & Helpers
     useEffect(() => {
         fetch(`${process.env.REACT_APP_API_URL}users/${supporter}`)
