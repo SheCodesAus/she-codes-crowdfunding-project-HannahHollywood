@@ -6,6 +6,9 @@ import ProjectCard from "../../components/ProjectCard/ProjectCard";
 // Styles
 import './HomePage.css';
 
+// Imports
+import { Link } from "react-router-dom";
+
 function HomePage() {
 
     // States
@@ -36,7 +39,7 @@ function HomePage() {
                 </p>
                 <br></br>
                 <p>
-                    <button>Post New Project</button>
+                    <button><Link to="/project/create/">POST NEW PROJECT</Link></button>
                 </p>
 
             </div>
