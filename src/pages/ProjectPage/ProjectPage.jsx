@@ -37,7 +37,7 @@ function ProjectPage() {
                 .reduce ((sum, pledge) => sum + pledge.amount, 0)
             setProjectPledgeAmount(totalPledges);
             
-            const goalPercentage = (totalPledges / data.goal) * 100
+            const goalPercentage = ((totalPledges / data.goal) * 100).toFixed(2)
             setGoalPercentage(goalPercentage);
         })
     }, [id]);
@@ -57,21 +57,19 @@ function ProjectPage() {
         </div>
         
         <div className="project-details">
-            <p>
                 <img className="project-img" src={projectData.image} alt="project img"/>
                 <ul>
-                    <li>Description: {projectData.description}</li>
-                    <li>Invention Type: {projectData.category}</li>
-                    <li>Fundraising Goal: ${projectData.goal}</li>
+                    <li>{projectData.description}</li>
+                    <li>Invention Category: {projectData.category}</li>
+                    <li>Donation Goal: ${projectData.goal}</li>
                     <li>Closing Date: {projectData.closing_date}</li>
                 </ul>
-            </p>
         </div>
 
         <div className="pledges-total">
             <h3>Total Raised: ${projectPledgeAmount} Inventi-Cents!</h3>
             
-            <ProgressBar completed={projectGoalPercentage} bgcolor={"#6a1b9a"} />
+            <ProgressBar completed={projectGoalPercentage} bgcolor={"#14D020"} />
             
             <h3>{projectData.is_open
             // '? :' are ternary oprators
@@ -79,21 +77,21 @@ function ProjectPage() {
                 // ':' is if false
                 // what comes before the ? is the predicate aka 'what you write in the if statement'
                 ? projectData.goal > projectPledgeAmount
-                    ? "Currently Accepting Pledges"
+                    ? "Currently Accepting Inventi-Cents! 💰"
                     : "We made a lot of money, please give more though 👀"
                 : "Invention has been built."}</h3>
         </div>
 
         <div>
-            <button><Link to={`/pledges/${id}`}>PLEDGE HERE</Link></button>
+            <button><Link to={`/pledges/${id}`}>DONATE HERE</Link></button>
         </div>
 
         <div className="pledges-amounts-comments">
-            <h3>Pledges:</h3>
+            <h3>Donations:</h3>
             <ul>
             {projectData.pledges.map((pledgeData, key) => {
                 return (
-                    <PledgeUser amount={pledgeData.amount} supporter={pledgeData.supporter} comment={pledgeData.comment} />
+                    <PledgeUser key={`pledge-${pledgeData.id}`} amount={pledgeData.amount} supporter={pledgeData.supporter} comment={pledgeData.comment} />
                 );
             })}
             </ul>

@@ -60,6 +60,7 @@ function LoginForm() {
           }
         );
         const data = await response.json();
+        console.log(data)
         window.localStorage.setItem("token", data.token);
         // THIS IS HOW YOU NAVIGATE AUTOMATICALLY
         navigate("/");

@@ -1,9 +1,11 @@
+import React from 'react'
+
 const ProgressBar = (props) => {
     const { bgcolor, completed } = props;
   
     const containerStyles = {
-      height: 20,
-      width: '100%',
+      height: 40,
+      width: '50%',
       backgroundColor: "#e0e0de",
       borderRadius: 50,
       margin: 50
@@ -20,7 +22,8 @@ const ProgressBar = (props) => {
     const labelStyles = {
       padding: 5,
       color: 'white',
-      fontWeight: 'bold'
+      fontWeight: 'bold',
+      textAlign: 'center'
     }
   
     return (

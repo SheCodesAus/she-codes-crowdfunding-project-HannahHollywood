@@ -1,5 +1,3 @@
-// import { computeHeadingLevel } from "@testing-library/react";
-
 // Imports
 import React, { Component } from "react";
 import { Button } from "./Button/Button";
@@ -38,7 +36,7 @@ class Nav extends Component {
                         <Link className="nav-links" to="/">Home</Link>
                         <i className="nav-links">Inventions</i>
                         <i className="nav-links">Geniuses</i>
-                        <i className="nav-links">Profile</i>
+                        <Link className="nav-links" to="/users/:id">Profile</Link>
                         <Link className="nav-links-mobile" to="/login">Login/Sign Up</Link>
                 </ul>
                 <Button className="nav-links-mobile"><Link to="/login">Login/Sign Up</Link></Button>

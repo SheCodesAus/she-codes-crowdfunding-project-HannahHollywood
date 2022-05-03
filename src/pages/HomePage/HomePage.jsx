@@ -32,7 +32,7 @@ function HomePage() {
                 </h1>
 
                 <p id="intro-text">
-                    A website where geniuses can fund their diabolical inventions 😈
+                    A website where geniuses can fund their diabolical inventions <span role="img" aria-label="Evil">😈</span>
                 </p>
                 <br></br>
                 <p>
