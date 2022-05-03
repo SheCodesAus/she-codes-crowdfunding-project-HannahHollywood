@@ -50,7 +50,11 @@ function UserPage() {
                 <p>
                 {userData.badges.map((badgeData, key) => {
                     return (
-                        <Badges key={`badges-${badgeData.id}`} image={badgeData.image} description={badgeData.description} /> 
+                        <Badges 
+                            key={`badges-${badgeData.id}`} 
+                            image={badgeData.image} 
+                            description={badgeData.description} 
+                        /> 
                     );
                 })};
                 </p>

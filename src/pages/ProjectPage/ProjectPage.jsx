@@ -91,7 +91,12 @@ function ProjectPage() {
             <ul>
             {projectData.pledges.map((pledgeData, key) => {
                 return (
-                    <PledgeUser key={`pledge-${pledgeData.id}`} amount={pledgeData.amount} supporter={pledgeData.supporter} comment={pledgeData.comment} />
+                    <PledgeUser 
+                        key={`pledge-${pledgeData.id}`} 
+                        amount={pledgeData.amount} 
+                        supporter={pledgeData.supporter} 
+                        comment={pledgeData.comment} 
+                    />
                 );
             })}
             </ul>

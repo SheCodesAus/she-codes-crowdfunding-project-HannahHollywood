@@ -25,8 +25,10 @@ function PledgeForm(pledgeData) {
 
   const handleSubmit = async (event) => {
     event.preventDefault();
+
     const token = window.localStorage.getItem("token")
     console.log("handleSubmit", pledge, token)
+    
     // Is user logged in and have they put something in all fields?
     if (token && pledge.amount && pledge.comment) {
       try {
@@ -36,14 +38,18 @@ function PledgeForm(pledgeData) {
             method: "post",
             headers: {
               "Content-Type": "application/json",
-              'Authorization': `Bearer ${token}`, // notice the Bearer before your token
+              'Authorization': `Token ${token}`,
             },
-            body: JSON.stringify({amount: parseInt(pledge.amount), comment: pledge.comment, anonymous: true, project_id: parseInt(id)}),
+            body: JSON.stringify({
+              amount: parseInt(pledge.amount), 
+              comment: pledge.comment, 
+              anonymous: true, 
+              project_id: parseInt(id)
+            }),
           }
         );
         const data = await response.json();
         console.log(data)
-        // window.localStorage.setItem("token", data.token);
         // THIS IS HOW YOU NAVIGATE AUTOMATICALLY
         navigate("/");
       } catch (err) {
@@ -55,17 +61,6 @@ function PledgeForm(pledgeData) {
     return (
         <form>
           <div>
-      
-       {/* <div>
-         You are submitting the following:
-         <ul>
-           {Object.entries(pledgeData).map(([amount, value]) => (
-             <li key={amount}><strong>{amount}</strong>:{value.toString()}</li>
-           ))}
-         </ul>
-       </div> */}
-
-
             <label htmlFor="amount">Enter Amount:</label>
             <input
               type="text"

@@ -34,12 +34,12 @@ class Nav extends Component {
                     ? 'nav-menu active' 
                     : 'nav-menu'}>
                         <Link className="nav-links" to="/">Home</Link>
-                        <i className="nav-links">Inventions</i>
-                        <i className="nav-links">Geniuses</i>
+                        <Link className="nav-links" to="/projects/">Inventions</Link>
+                        <Link className="nav-links" to="/users/">Geniuses</Link>
                         <Link className="nav-links" to="/users/:id">Profile</Link>
-                        <Link className="nav-links-mobile" to="/login">Login/Sign Up</Link>
+                        <Link className="nav-links-mobile" to="/login">Login</Link>
                 </ul>
-                <Button className="nav-links-mobile"><Link to="/login">Login/Sign Up</Link></Button>
+                <Button className="nav-links-mobile"><Link to="/login">Login</Link></Button>
             </nav>
         )
     }

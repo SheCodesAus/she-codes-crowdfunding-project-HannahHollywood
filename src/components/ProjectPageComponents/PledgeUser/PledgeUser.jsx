@@ -24,8 +24,7 @@ function PledgeUser({amount, supporter, comment}) {
             <li id="pledges-and-comments">
                 ${amount} from {supporterData.username} 
                 <br></br>"{comment}"
-            </li>
-            
+            </li>    
     );
 }
 
