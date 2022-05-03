@@ -36,7 +36,7 @@ function HomePage() {
                 </p>
                 <br></br>
                 <p>
-                    "--I would like to add a total count here of how much raised on the site--"
+                    <button>Post New Project</button>
                 </p>
 
             </div>

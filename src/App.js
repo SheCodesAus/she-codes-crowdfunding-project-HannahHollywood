@@ -12,6 +12,7 @@ import PledgePage from "./pages/PledgePage/PledgePage";
 import UserPage from "./pages/UserPage/UserPage";
 import InventionsPage from "./pages/InventionsPage/InventionsPage";
 import GeniusListPage from "./pages/GeniusListPage/GeniusListPage";
+import ProjectFormPage from "./pages/ProjectFormPage/ProjectFormPage";
 
 // Styles
 import "./App.css";
@@ -23,7 +24,8 @@ function App() {
       <div>
         <Nav />
         <Routes>
-        <Route path="/projects/" element={<InventionsPage />} />
+          <Route path="/projects/" element={<InventionsPage />} />
+          <Route path="/project/create" element={<ProjectFormPage />} />
           <Route path="/project/:id" element={<ProjectPage />} />
           <Route path="/pledges/:id" element={<PledgePage />} />
           <Route path="users/" element={<GeniusListPage />} />
