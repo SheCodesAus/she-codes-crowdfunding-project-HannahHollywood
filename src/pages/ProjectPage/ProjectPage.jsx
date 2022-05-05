@@ -17,7 +17,8 @@ function ProjectPage() {
     const [projectData, setProjectData] = useState();
     const [projectPledgeAmount, setProjectPledgeAmount] = useState();
     const [projectGoalPercentage, setGoalPercentage] = useState();
-    
+    const [isError, setIsError] = useState(false);
+
     // Hooks
     const { id } = useParams();
     
@@ -28,17 +29,23 @@ function ProjectPage() {
             return results.json();
         })
         .then((data) => {
-            setProjectData(data);
+            console.log(data)
+
+            if (data.detail === 'Not found.') {
+                setIsError(true)
+            } else {
+                setProjectData(data);
             
-            const totalPledges = data.pledges
-                // eslint-disable-next-line eqeqeq
-                .filter (pledge => pledge.project_id == id)
-                // reducing your list to an output value
-                .reduce ((sum, pledge) => sum + pledge.amount, 0)
-            setProjectPledgeAmount(totalPledges);
-            
-            const goalPercentage = ((totalPledges / data.goal) * 100).toFixed(2)
-            setGoalPercentage(goalPercentage);
+                const totalPledges = data.pledges
+                    // eslint-disable-next-line eqeqeq
+                    .filter (pledge => pledge.project_id == id)
+                    // reducing your list to an output value
+                    .reduce ((sum, pledge) => sum + pledge.amount, 0)
+                setProjectPledgeAmount(totalPledges);
+                
+                const goalPercentage = ((totalPledges / data.goal) * 100).toFixed(2)
+                setGoalPercentage(goalPercentage);
+            }
         })
     }, [id]);
 
@@ -46,6 +53,10 @@ function ProjectPage() {
     // "Skeleton" Loading
     if (!projectData) {
         return <h3>Loading project...</h3>;
+    }
+
+    if (isError) {
+        return <h3>Project Doesn't Exist...</h3>;
     }
 
     // Normal State

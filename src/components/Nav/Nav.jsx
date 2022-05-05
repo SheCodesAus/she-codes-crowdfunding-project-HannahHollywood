@@ -1,30 +1,58 @@
 // Imports
 import React, { useState } from "react";
 import { Button } from "./Button/Button";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 // Styles
 import "./Nav.css";
 
 function Nav() {
-    // TODO: fix authentication for Login/SignUp Button
-    const [isLoggedIn, setIsLoggedIn] = useState(() => {
-        const token = window.localStorage.getItem("token")
-
-        // const handleChange = (event) => {
-        //     const { id, value } = event.target;
-        //     setIsLoggedIn((isLoggedIn) => ({
-        //       ...isLoggedIn,
-        //       [id]: value,
-        //     }));
-        //   };
-
-        return !!token
-
-    });
 
     // Hamburger State
     const [isMenuExpanded, setMenuExpanded] = useState(false);
+
+    const navigate = useNavigate();
+
+    const navigateToLogin = () => {
+        navigate("/login/")
+    }
+
+    const handleSignOut = () => {
+        // It is assumed that a token belongs to a user who is logged in
+        // so to sign a user out we will remove these from local storage
+        window.localStorage.removeItem("token");
+
+        // Make sure we navigate back to login page
+        navigateToLogin()
+    }
+
+    //check if user has token and change nav
+    const checkUser = (isBurgerMenu) => {
+        // Get the user token. The !! ensure that the token "string" or undefined becomes true or false
+        const isUserLoggedIn = !!window.localStorage.getItem("token");
+        console.log("isuserloggedin", isUserLoggedIn)
+
+        const className = "nav-links-mobile";
+
+        const loginButton = <Button className={className} onClick={navigateToLogin}>Login</Button>;
+        const signOutButton = <Button className={className} onClick={handleSignOut}>Sign Out</Button>;
+
+        const loginLink = <button className={className} onClick={handleSignOut}>Login</button>;
+        const signOutLink = <button className={className} onClick={handleSignOut}>Sign Out</button>
+
+        // This is a ternary operation
+        //      Conditon ? True : false
+        // Example: we check is the user logged in (yes => show sign out) (no => show login)
+        if (isBurgerMenu) {
+            return isUserLoggedIn 
+                ? signOutButton
+                : loginButton
+        } else {
+            return isUserLoggedIn 
+                ? signOutLink
+                : loginLink
+        }   
+    }
 
     // Hamburger Handlers
     const handleClick = () => {
@@ -51,17 +79,18 @@ function Nav() {
                     <Link className="nav-links" to="/">Home</Link>
                     <Link className="nav-links" to="/projects/">Inventions</Link>
                     <Link className="nav-links" to="/users/">Geniuses</Link>
-                    <i className="nav-links">Comments</i>
-                    {isLoggedIn
+                    <i className="nav-links">Profile</i>
+                    {checkUser(false)}
+                    {/* {isLoggedIn
                         ? <Link className="nav-links-mobile" to="/login">Login/Sign Up</Link>
-                        : setIsLoggedIn
-                        // : <Link className="nav-links" to="/users/:id">Profile</Link>
-                    }
+                        : ""
+                    } */}
             </ul>
-            {isLoggedIn
+            {checkUser(true)}
+            {/* {isLoggedIn
                 ? <Button className="nav-links-mobile"><Link to="/login">Login/Sign Up</Link></Button>
-                : setIsLoggedIn
-            }
+                : ""
+            } */}
         </nav>
     )
 };
