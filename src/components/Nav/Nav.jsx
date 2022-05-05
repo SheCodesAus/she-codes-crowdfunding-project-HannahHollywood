@@ -30,7 +30,7 @@ function Nav() {
     const checkUser = (isBurgerMenu) => {
         // Get the user token. The !! ensure that the token "string" or undefined becomes true or false
         const isUserLoggedIn = !!window.localStorage.getItem("token");
-        console.log("isuserloggedin", isUserLoggedIn)
+        // console.log("isuserloggedin", isUserLoggedIn)
 
         const className = "nav-links-mobile";
 
