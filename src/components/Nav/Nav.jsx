@@ -11,7 +11,16 @@ function Nav() {
     const [isLoggedIn, setIsLoggedIn] = useState(() => {
         const token = window.localStorage.getItem("token")
 
+        // const handleChange = (event) => {
+        //     const { id, value } = event.target;
+        //     setIsLoggedIn((isLoggedIn) => ({
+        //       ...isLoggedIn,
+        //       [id]: value,
+        //     }));
+        //   };
+
         return !!token
+
     });
 
     // Hamburger State
@@ -42,15 +51,15 @@ function Nav() {
                     <Link className="nav-links" to="/">Home</Link>
                     <Link className="nav-links" to="/projects/">Inventions</Link>
                     <Link className="nav-links" to="/users/">Geniuses</Link>
-                    <Link className="nav-links" to="/users/:id">Profile</Link>
+                    <i className="nav-links">Comments</i>
                     {isLoggedIn
                         ? <Link className="nav-links-mobile" to="/login">Login/Sign Up</Link>
-                        : ""
+                        : <Link className="nav-links" to="/users/:id">Profile</Link>
                     }
             </ul>
             {isLoggedIn
                 ? <Button className="nav-links-mobile"><Link to="/login">Login/Sign Up</Link></Button>
-                : ""
+                : <Link className="nav-links" to="/users/:id">Profile</Link>
             }
         </nav>
     )

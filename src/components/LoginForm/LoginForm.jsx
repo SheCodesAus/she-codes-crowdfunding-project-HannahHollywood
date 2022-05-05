@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 function LoginForm() {
   // State
@@ -93,6 +93,15 @@ function LoginForm() {
       <button type="submit" onClick={handleSubmit}>
         Login
       </button>
+      <br></br>
+    
+    <br></br>
+    <div>
+      <h3>Don't have an account?</h3>
+      <p>Sign up Below <span role="img" aria-label="Pointing Down">👇</span></p>
+      <button><Link to="/users/register/">Create Account</Link></button>
+    </div>
+
     </form>
   );
 }
