@@ -54,12 +54,13 @@ function Nav() {
                     <i className="nav-links">Comments</i>
                     {isLoggedIn
                         ? <Link className="nav-links-mobile" to="/login">Login/Sign Up</Link>
-                        : <Link className="nav-links" to="/users/:id">Profile</Link>
+                        : setIsLoggedIn
+                        // : <Link className="nav-links" to="/users/:id">Profile</Link>
                     }
             </ul>
             {isLoggedIn
                 ? <Button className="nav-links-mobile"><Link to="/login">Login/Sign Up</Link></Button>
-                : <Link className="nav-links" to="/users/:id">Profile</Link>
+                : setIsLoggedIn
             }
         </nav>
     )

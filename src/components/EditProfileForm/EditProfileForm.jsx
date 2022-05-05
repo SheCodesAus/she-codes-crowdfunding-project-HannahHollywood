@@ -3,15 +3,14 @@ import React, { useState } from "react";
 // Imports
 import { useNavigate } from "react-router-dom";
 
-function RegistrationForm() {
+function EditProfileForm({user}) {
   // State
-  const [register, setRegister] = useState({
+  const [editUserData, setEditUserData] = useState({
   "username": "",
-	"password": "",
-	"password2": "",
 	"email": "",
-	"first_name": "",
-	"last_name": ""
+	"avatar": "",
+	"bio": "",
+	"website": "",
   });
 
   // // Hooks
@@ -20,38 +19,42 @@ function RegistrationForm() {
   // Actions and Helpers
   const handleChange = (event) => {
     const { id, value } = event.target;
-    setRegister((prevRegister) => ({
-      ...prevRegister,
+    setEditUserData((prevEditUserData) => ({
+      ...prevEditUserData,
       [id]: value,
     }));
   };
 
   const handleSubmit = async (event) => {
     event.preventDefault();
+
+    const token = window.localStorage.getItem("token")
+    console.log("handleSubmit", editUserData, token)
     
-    if (register.username && register.password && register.password2 && register.email && register.first_name && register.last_name) {
+    // Is user logged in and have they put something in all fields?
+    if (token && editUserData.username && editUserData.email && editUserData.avatar && editUserData.bio && editUserData.website) {
       try {
         const response = await fetch(
-          `${process.env.REACT_APP_API_URL}users/register/`,
+          `${process.env.REACT_APP_API_URL}users/${user}`,
           {
-            method: "post",
+            method: "put",
             headers: {
               "Content-Type": "application/json",
+              'Authorization': `Token ${token}`,
             },
             body: JSON.stringify({
-              username: register.username, 
-              password: register.password,
-              password2: register.password2,
-              email: register.email,
-              first_name: register.first_name,
-              last_name: register.last_name
+              username: editUserData.username, 
+              email: editUserData.email,
+              avatar: editUserData.avatar,
+              bio: editUserData.bio,
+              website: editUserData.website
             }),
           }
         );
         const data = await response.json();
         console.log(data)
         // THIS IS HOW YOU NAVIGATE AUTOMATICALLY
-        navigate("/");
+        navigate(`/users/${user}`);
       } catch (err) {
         console.log(err);
       }
@@ -60,40 +63,34 @@ function RegistrationForm() {
 
   const formFields = [
     {
-       id: "username",
-       label: "Username",
-       placeholder: "Enter your Username",
-       type: "text",
-    },
-    {
-        id: "password",
-        label: "Password",
-        placeholder: "Enter password",
-        type: "password",
-    },
-    {
-        id: "password2",
-        label: "Password",
-        placeholder: "Re-enter password",
-        type: "password",
-    },
+        id: "username",
+        label: "Username",
+        placeholder: "Update your Username",
+        type: "text",
+     },
     {
         id: "email",
         label: "Email",
-        placeholder: "Enter your Email Address",
+        placeholder: "Update your Email",
         type: "email",
     },
-        {
-       id: "first_name",
-       label: "First Name",
-       placeholder: "Enter your First Name",
-       type: "text",
+    {
+        id: "avatar",
+        label: "Avatar",
+        placeholder: "Copy & Paste Image URL from Google Images",
+        type: "url",
     },
     {
-        id: "last_name",
-        label: "Last Name",
-        placeholder: "Enter your Last Name",
+        id: "bio",
+        label: "Bio",
+        placeholder: "Tell us a little about yourself",
         type: "text",
+    },
+    {
+        id: "website",
+        label: "Website",
+        placeholder: "Enter Social Media Link",
+        type: "url",
     },
 ]
 
@@ -115,10 +112,10 @@ function RegistrationForm() {
                 )
             })}
             <button type="submit" onClick={handleSubmit}>
-                Create Account
+                Save Updates
             </button>
         </form>
     )
 }
 
-export default RegistrationForm;
+export default EditProfileForm;

@@ -1,6 +1,9 @@
 import React, { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
 
+// Imports
+import { Link } from "react-router-dom";
+
 // Styles
 import "./UserPage.css";
 
@@ -59,6 +62,8 @@ function UserPage() {
                 })};
                 </p>
             </div>
+
+            <button><Link to="edit-profile">Edit Profile</Link></button>
 
         </div>
     );

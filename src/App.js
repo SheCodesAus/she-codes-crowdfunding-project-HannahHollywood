@@ -11,6 +11,7 @@ import RegistrationPage from "./pages/RegistrationPage/RegistrationPage";
 import LoginPage from "./pages/LoginPage/LoginPage";
 import PledgePage from "./pages/PledgePage/PledgePage";
 import UserPage from "./pages/UserPage/UserPage";
+import EditProfilePage from "./pages/UserPage/EditProfileForm/EditProfileForm";
 import InventionsPage from "./pages/InventionsPage/InventionsPage";
 import GeniusListPage from "./pages/GeniusListPage/GeniusListPage";
 import ProjectFormPage from "./pages/ProjectFormPage/ProjectFormPage";
@@ -31,6 +32,7 @@ function App() {
           <Route path="/pledges/:id" element={<PledgePage />} />
           <Route path="users/" element={<GeniusListPage />} />
           <Route path="users/:id" element={<UserPage />} />
+          <Route path="users/:id/edit-profile" element={<EditProfilePage />} />
           <Route path="users/register/" element={<RegistrationPage />} />
           <Route path="/login" element={<LoginPage />} />
           <Route path="/" element={<HomePage />} />
