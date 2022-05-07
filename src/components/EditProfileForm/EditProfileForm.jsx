@@ -29,7 +29,8 @@ function EditProfileForm({user}) {
     event.preventDefault();
 
     const token = window.localStorage.getItem("token")
-    console.log("handleSubmit", editUserData, token)
+    console.log("handleSubmit", editUserData)
+    console.log("handleToken", token)
     
     // Is user logged in and have they put something in all fields?
     if (token && editUserData.username && editUserData.email && editUserData.avatar && editUserData.bio && editUserData.website) {
@@ -52,7 +53,7 @@ function EditProfileForm({user}) {
           }
         );
         const data = await response.json();
-        console.log(data)
+        console.log("result", data)
         // THIS IS HOW YOU NAVIGATE AUTOMATICALLY
         navigate(`/users/${user}`);
       } catch (err) {

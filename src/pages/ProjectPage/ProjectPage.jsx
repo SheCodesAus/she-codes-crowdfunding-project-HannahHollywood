@@ -112,6 +112,8 @@ function ProjectPage() {
             })}
             </ul>
         </div>
+
+        <button><Link to={`/projects/edit-invention/${projectData.id}`}>EDIT YOUR INVENTION</Link></button>
     </div>
     );
 }

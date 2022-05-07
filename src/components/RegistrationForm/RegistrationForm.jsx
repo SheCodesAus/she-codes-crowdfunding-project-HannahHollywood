@@ -32,7 +32,7 @@ function RegistrationForm() {
     if (register.username && register.password && register.password2 && register.email && register.first_name && register.last_name) {
       try {
         const response = await fetch(
-          `${process.env.REACT_APP_API_URL}users/register/`,
+          `${process.env.REACT_APP_API_URL}users/`,
           {
             method: "post",
             headers: {
@@ -51,7 +51,7 @@ function RegistrationForm() {
         const data = await response.json();
         console.log(data)
         // THIS IS HOW YOU NAVIGATE AUTOMATICALLY
-        navigate("/");
+        navigate(`/users/${data.id}`);
       } catch (err) {
         console.log(err);
       }
