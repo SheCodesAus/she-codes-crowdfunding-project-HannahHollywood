@@ -11,7 +11,7 @@ import "./UserPage.css";
 // import { Link } from "react-router-dom";
 
 // Components
-import Badges from "../../components/Badges/Badges";
+// import Badges from "../../components/Badges/Badges";
 
 function UserPage() {
     // State
@@ -48,7 +48,7 @@ function UserPage() {
                     <li>{userData.website}</li>
                 </ul>
             </div>
-
+{/* 
             <div className="badges">
                 <p>
                 {userData.badges.map((badgeData, key) => {
@@ -61,7 +61,7 @@ function UserPage() {
                     );
                 })};
                 </p>
-            </div>
+            </div> */}
 
             <button><Link to="edit-profile">Edit Profile</Link></button>
 

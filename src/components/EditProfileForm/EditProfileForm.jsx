@@ -3,15 +3,11 @@ import React, { useState } from "react";
 // Imports
 import { useNavigate } from "react-router-dom";
 
-function EditProfileForm({user}) {
+function EditProfileForm(userData) {
   // State
-  const [editUserData, setEditUserData] = useState({
-  "username": "",
-	"email": "",
-	"avatar": "",
-	"bio": "",
-	"website": "",
-  });
+  const [editUserData, setEditUserData] = useState(
+    userData.map
+  );
 
   // // Hooks
   const navigate = useNavigate();
@@ -36,7 +32,7 @@ function EditProfileForm({user}) {
     if (token && editUserData.username && editUserData.email && editUserData.avatar && editUserData.bio && editUserData.website) {
       try {
         const response = await fetch(
-          `${process.env.REACT_APP_API_URL}users/${user}`,
+          `${process.env.REACT_APP_API_URL}users/`,
           {
             method: "put",
             headers: {
@@ -55,7 +51,7 @@ function EditProfileForm({user}) {
         const data = await response.json();
         console.log("result", data)
         // THIS IS HOW YOU NAVIGATE AUTOMATICALLY
-        navigate(`/users/${user}`);
+        navigate(`/users/${data.id}`);
       } catch (err) {
         console.log(err);
       }
@@ -78,7 +74,7 @@ function EditProfileForm({user}) {
     {
         id: "avatar",
         label: "Avatar",
-        placeholder: "Copy & Paste Image URL from Google Images",
+        placeholder: "Copy Image URL",
         type: "url",
     },
     {

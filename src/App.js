@@ -40,7 +40,7 @@ function App() {
           <Route path="/users/" element={<GeniusListPage />} />
 
           <Route path="/users/:id" element={<UserPage />} />
-          <Route path="/users/edit-profile/:id" element={<EditProfilePage />} />
+          <Route path="/users/:id/edit-profile" element={<EditProfilePage />} />
           <Route path="/users/register/" element={<RegistrationPage />} />
           <Route path="/login" element={<LoginPage />} />
 

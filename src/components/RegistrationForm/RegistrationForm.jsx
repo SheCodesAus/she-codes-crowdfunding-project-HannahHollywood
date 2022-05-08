@@ -11,7 +11,10 @@ function RegistrationForm() {
 	"password2": "",
 	"email": "",
 	"first_name": "",
-	"last_name": ""
+	"last_name": "",
+  "avatar": "",
+  "bio": "",
+  "website": ""
   });
 
   // // Hooks
@@ -29,7 +32,7 @@ function RegistrationForm() {
   const handleSubmit = async (event) => {
     event.preventDefault();
     
-    if (register.username && register.password && register.password2 && register.email && register.first_name && register.last_name) {
+    if (register.username && register.password && register.password2 && register.email && register.first_name && register.last_name && register.avatar && register.bio && register.website) {
       try {
         const response = await fetch(
           `${process.env.REACT_APP_API_URL}users/`,
@@ -44,7 +47,10 @@ function RegistrationForm() {
               password2: register.password2,
               email: register.email,
               first_name: register.first_name,
-              last_name: register.last_name
+              last_name: register.last_name,
+              avatar: register.avatar,
+              bio: register.bio,
+              website: register.website
             }),
           }
         );
@@ -80,21 +86,39 @@ function RegistrationForm() {
     {
         id: "email",
         label: "Email",
-        placeholder: "Enter your Email Address",
+        placeholder: "Enter Email Address",
         type: "email",
     },
         {
        id: "first_name",
        label: "First Name",
-       placeholder: "Enter your First Name",
+       placeholder: "Enter First Name",
        type: "text",
     },
     {
         id: "last_name",
         label: "Last Name",
-        placeholder: "Enter your Last Name",
+        placeholder: "Enter Last Name",
         type: "text",
     },
+    {
+      id: "avatar",
+      label: "Avatar",
+      placeholder: "Copy Image URL",
+      type: "url",
+  },
+    {
+      id: "bio",
+      label: "Bio",
+      placeholder: "Tell us about yourself",
+      type: "text",
+  },
+    {
+      id: "website",
+      label: "Website",
+      placeholder: "Enter Social Media Link",
+      type: "url",
+  },
 ]
 
     return ( 
