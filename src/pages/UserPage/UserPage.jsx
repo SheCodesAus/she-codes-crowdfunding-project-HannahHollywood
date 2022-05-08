@@ -3,6 +3,8 @@ import { useParams } from "react-router-dom";
 
 // Imports
 import { Link } from "react-router-dom";
+// import ProjectCard from "../../components/ProjectCard/ProjectCard";
+// import BadgeIconPage from "./BadgeIconPage/BadgeIconPage";
 
 // Styles
 import "./UserPage.css";
@@ -11,11 +13,13 @@ import "./UserPage.css";
 // import { Link } from "react-router-dom";
 
 // Components
-// import Badges from "../../components/Badges/Badges";
+import BadgesIcon from "../../components/BadgesIcon/BadgesIcon";
 
 function UserPage() {
     // State
     const [userData, setUserData] = useState();
+    // const [projectList, setProjectList] = useState([]);
+    const [badgeIconData, setBadgeIconData] = useState();
 
     // Hooks
     const { id } = useParams();
@@ -31,12 +35,38 @@ function UserPage() {
         })
     }, [id]);
 
+    // useEffect(() => {
+    //     fetch(`${process.env.REACT_APP_API_URL}projects`)
+    //         .then((results) => {
+    //             return results.json();
+    //         })
+    //         .then((data) => {
+    //             setProjectList(data);
+    //         });
+    // }, []);
+
+    useEffect(() => {
+        fetch(`${process.env.REACT_APP_API_URL}/users/badges/${id}`)
+        .then((results) => {
+            return results.json();
+        })
+        .then((data) => {
+            setBadgeIconData(data);
+        })
+    }, [id]);
+
     // Loading State
-    // "Skeleton" Loading
     if (!userData) {
         return <h3>Loading profile...</h3>;
+
     }
 
+    // // Loading State
+    // if (!badgeIconData) {
+    //     return <h3>You have no badges 😔</h3>;
+    // }
+
+    // Normal State
     return (
         <div className="profile-wrapper">
             <div className="photo-and-info">
@@ -48,22 +78,33 @@ function UserPage() {
                     <li>{userData.website}</li>
                 </ul>
             </div>
-{/* 
-            <div className="badges">
-                <p>
-                {userData.badges.map((badgeData, key) => {
-                    return (
-                        <Badges 
-                            key={`badges-${badgeData.id}`} 
-                            image={badgeData.image} 
-                            description={badgeData.description} 
-                        /> 
-                    );
-                })};
-                </p>
-            </div> */}
+
+            <div className="badge-card">
+                    {badgeIconData}
+                    {userData.badges.map((badgeIconData, key) => {
+                        return (
+                            <BadgesIcon 
+                                key={`users/badges-${badgeIconData.id}`} 
+                                image={badgeIconData.image} 
+                                description={badgeIconData.description} 
+                            />
+                        );
+                    })}
+            </div>
 
             <button><Link to="edit-profile">Edit Profile</Link></button>
+
+        {/* <div className="user-invention-list">
+            <h1>View all of {userData.username}'s Inventions</h1>
+            <ul>
+            {projectList.map((projectData, key) => {
+                    return <ProjectCard 
+                        key={`project-${projectData.id}`} 
+                        projectData={projectData}
+                    />;
+                })}
+            </ul>
+        </div> */}
 
         </div>
     );

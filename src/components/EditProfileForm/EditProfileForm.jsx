@@ -3,11 +3,15 @@ import React, { useState } from "react";
 // Imports
 import { useNavigate } from "react-router-dom";
 
-function EditProfileForm(userData) {
+function EditProfileForm() {
   // State
-  const [editUserData, setEditUserData] = useState(
-    userData.map
-  );
+  const [editUserData, setEditUserData] = useState({
+  "username": "",
+	"email": "",
+	"avatar": "",
+	"bio": "",
+	"website": "",
+  });
 
   // // Hooks
   const navigate = useNavigate();

@@ -14,6 +14,7 @@ import RegistrationPage from "./pages/RegistrationPage/RegistrationPage";
 import LoginPage from "./pages/LoginPage/LoginPage";
 import UserPage from "./pages/UserPage/UserPage";
 import EditProfilePage from "./pages/UserPage/EditProfileForm/EditProfileForm";
+import BadgeIconPage from "./pages/UserPage/BadgeIconPage/BadgeIconPage";
 
 import PledgePage from "./pages/PledgePage/PledgePage";
 
@@ -41,6 +42,7 @@ function App() {
 
           <Route path="/users/:id" element={<UserPage />} />
           <Route path="/users/:id/edit-profile" element={<EditProfilePage />} />
+          <Route path="/users/badges/:id" element={<BadgeIconPage />} />
           <Route path="/users/register/" element={<RegistrationPage />} />
           <Route path="/login" element={<LoginPage />} />
 
