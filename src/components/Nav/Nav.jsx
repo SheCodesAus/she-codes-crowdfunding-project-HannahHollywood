@@ -81,16 +81,8 @@ function Nav() {
                     <Link className="nav-links" to="/users/">Geniuses</Link>
                     <i className="nav-links">Profile</i>
                     {checkUser(false)}
-                    {/* {isLoggedIn
-                        ? <Link className="nav-links-mobile" to="/login">Login/Sign Up</Link>
-                        : ""
-                    } */}
             </ul>
             {checkUser(true)}
-            {/* {isLoggedIn
-                ? <Button className="nav-links-mobile"><Link to="/login">Login/Sign Up</Link></Button>
-                : ""
-            } */}
         </nav>
     )
 };
