@@ -9,14 +9,16 @@ function EditProjectForm(projectData) {
     projectData.map
   );
 
+  console.log("------>", editProject)
+
   // // Hooks
   const navigate = useNavigate();
 
   // Actions and Helpers
   const handleChange = (event) => {
     const { id, value } = event.target;
-    setEditProject((prevProjectData) => ({
-      ...prevProjectData,
+    setEditProject((prevEditProject) => ({
+      ...prevEditProject,
       [id]: value,
     }));
   };
@@ -26,12 +28,25 @@ function EditProjectForm(projectData) {
 
     const token = window.localStorage.getItem("token")
     console.log("handleSubmit", editProject, token)
+    if (!token)return;
+
+
+    const updatedProject = {}
+    if (projectData.title !== editProject.title) updatedProject.title = editProject.title
+    if (projectData.description !== editProject.description) updatedProject.description = editProject.description
+    if (projectData.goal !== editProject.goal) updatedProject.goal = parseInt(editProject.goal)
+    if (projectData.image !== editProject.image) updatedProject.image = editProject.image
+    if (projectData.is_open !== editProject.is_open) updatedProject.is_open = editProject.is_open
+    if (projectData.date_created !== editProject.date_created) updatedProject.date_created = new Date(editProject.date_created).toISOString()
+    if (projectData.category !== editProject.category) updatedProject.category = editProject.category
+    if (projectData.closing_date !== editProject.closing_date) updatedProject.closing_date = new Date(editProject.closing_date).toISOString()
+
     
     // Is user logged in and have they put something in all fields?
     if (token && editProject.title && editProject.description && editProject.goal && editProject.image && editProject.is_open && editProject.date_created && editProject.category && editProject.closing_date) {
       try {
         const response = await fetch(
-          `${process.env.REACT_APP_API_URL}projects/`,
+          `${process.env.REACT_APP_API_URL}projects/${editProject.id}`,
           {
             method: "put",
             headers: {
@@ -39,14 +54,14 @@ function EditProjectForm(projectData) {
               'Authorization': `Token ${token}`,
             },
             body: JSON.stringify({
-              title: editProject.title, 
-              description: editProject.description,
-              goal: parseInt(editProject.goal),
-              image: editProject.image,
-              is_open: editProject.is_open === "on",
-              date_created: new Date(editProject.date_created).toISOString(),
-              category: editProject.category,
-              closing_date: new Date(editProject.closing_date).toISOString()
+              title: projectData.title, 
+              description: projectData.description,
+              goal: parseInt(projectData.goal),
+              image: projectData.image,
+              is_open: projectData.is_open === "on",
+              date_created: new Date(projectData.date_created).toISOString(),
+              category: projectData.category,
+              closing_date: new Date(projectData.closing_date).toISOString()
             }),
           }
         );
@@ -100,8 +115,8 @@ function EditProjectForm(projectData) {
     {
         id: "category",
         label: "Category",
-        placeholder: "Enter category",
-        type: "text",
+        placeholder: "Select category",
+        type: "select",
     },
     {
         id: "closing_date",

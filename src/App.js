@@ -7,8 +7,8 @@ import Nav from "./components/Nav/Nav";
 // Pages
 import HomePage from "./pages/HomePage/HomePage";
 import ProjectPage from "./pages/ProjectPage/ProjectPage";
-import ProjectFormPage from "./pages/ProjectFormPage/ProjectFormPage";
-import EditProjectFormPage from "./pages/ProjectFormPage/EditProjectFormPage";
+import ProjectFormPage from "./pages/ProjectPage/ProjectFormPage/ProjectFormPage";
+import EditProjectFormPage from "./pages/ProjectPage/ProjectFormPage/EditProjectFormPage";
 
 import RegistrationPage from "./pages/RegistrationPage/RegistrationPage";
 import LoginPage from "./pages/LoginPage/LoginPage";
@@ -17,6 +17,7 @@ import EditProfilePage from "./pages/UserPage/EditProfileForm/EditProfileForm";
 import BadgeIconPage from "./pages/UserPage/BadgeIconPage/BadgeIconPage";
 
 import PledgePage from "./pages/PledgePage/PledgePage";
+import CategoryPage from "./pages/ProjectPage/CategoryPage/CategoryPage";
 
 import InventionsPage from "./pages/InventionsPage/InventionsPage";
 import GeniusListPage from "./pages/GeniusListPage/GeniusListPage";
@@ -37,6 +38,7 @@ function App() {
           <Route path="/projects/edit-invention/:id" element={<EditProjectFormPage />} />
 
           <Route path="/pledges/:id" element={<PledgePage />} />
+          <Route path="/category/:slug" element={<CategoryPage/>} />
 
           <Route path="/users/" element={<GeniusListPage />} />
 
