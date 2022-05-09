@@ -14,8 +14,8 @@ import RegistrationPage from "./pages/RegistrationPage/RegistrationPage";
 import LoginPage from "./pages/LoginPage/LoginPage";
 import UserPage from "./pages/UserPage/UserPage";
 import EditProfilePage from "./pages/UserPage/EditProfileForm/EditProfileForm";
-import BadgeIconPage from "./pages/UserPage/BadgeIconPage/BadgeIconPage";
 
+import BadgeIconPage from "./pages/UserPage/BadgeIconPage/BadgeIconPage";
 import PledgePage from "./pages/PledgePage/PledgePage";
 import CategoryPage from "./pages/ProjectPage/CategoryPage/CategoryPage";
 
