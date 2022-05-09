@@ -35,7 +35,7 @@ function EditProjectForm({project, categories}) {
         if (project.image !== editProjectInfo.image) updatedProject.image = editProjectInfo.image
         if (project.category !== editProjectInfo.category) updatedProject.category = editProjectInfo.category
         if (project.date_created !== editProjectInfo.date_created) updatedProject.date_created = new Date(editProjectInfo.date_created).toISOString()
-        if (project.deadline !== editProjectInfo.deadline) updatedProject.deadline = new Date(editProjectInfo.deadline).toISOString()
+        if (project.closing_date !== editProjectInfo.closing_date) updatedProject.closing_date = new Date(editProjectInfo.closing_date).toISOString()
 
         if (Object.keys(updatedProject).length > 0) {
             try {
@@ -108,7 +108,7 @@ function EditProjectForm({project, categories}) {
                 />
             </div>
             <div className="form-item">
-                <label htmlFor="date_created">Date created:</label>
+                <label htmlFor="date_created">Date Created:</label>
                 <input
                     type="date"
                     id="date_created"
@@ -116,28 +116,27 @@ function EditProjectForm({project, categories}) {
                     onChange={handleChange}
                 />
             </div>
-            {/* <div className="form-item">
-                <label htmlFor="category">Category:</label>
-                <select name="category" id="category" defaultValue={editProjectInfo.category} onChange={handleChange}>
-                    {categories.map((category, key) =>  {
-                        return(
-                        <option key={`${key}-${category.id}`} value={category.slug}>{category.name}</option>
-                        )
-                    })}
-                </select>
-            </div> */}
             <div className="form-item">
-                <label htmlFor="deadline">Deadline:</label>
+                <label htmlFor="category">Update Category:</label>
+                <input
+                    type="select"
+                    id="category"
+                    value={editProjectInfo.category}
+                    onChange={handleChange}
+                />
+            </div>
+            <div className="form-item">
+                <label htmlFor="closing_date">Closing Date:</label>
                 <input
                     type="date"
-                    id="deadline"
-                    value={editProjectInfo.deadline}
+                    id="closing_date"
+                    value={editProjectInfo.closing_date}
                     onChange={handleChange}
                 />
             </div>
             <div className="form-item">
             <button type="submit" onClick={handleSubmit}>
-                    Update Project
+            Update Invention
             </button>
             </div>
         </form>
@@ -147,151 +146,3 @@ function EditProjectForm({project, categories}) {
 
 
 export default EditProjectForm
-
-
-
-
-
-// import React, { useState } from "react";
-
-// // Imports
-// import { useNavigate } from "react-router-dom";
-
-// function EditProjectForm(projectData) {
-//   // State
-//   const [editProject, setEditProject] = useState(
-//     projectData.map
-//   );
-
-//   console.log("------>", editProject)
-
-//   // // Hooks
-//   const navigate = useNavigate();
-
-//   // Actions and Helpers
-//   const handleChange = (event) => {
-//     const { id, value } = event.target;
-//     setEditProject((prevEditProject) => ({
-//       ...prevEditProject,
-//       [id]: value,
-//     }));
-//   };
-
-//   const handleSubmit = async (event) => {
-//     event.preventDefault();
-
-//     const token = window.localStorage.getItem("token")
-//     console.log("handleSubmit", editProject, token)
-
-
-//     const updatedProject = {}
-//     if (projectData.title !== editProject.title) updatedProject.title = editProject.title
-//     if (projectData.description !== editProject.description) updatedProject.description = editProject.description
-//     if (projectData.goal !== editProject.goal) updatedProject.goal = parseInt(editProject.goal)
-//     if (projectData.image !== editProject.image) updatedProject.image = editProject.image
-//     if (projectData.is_open !== editProject.is_open) updatedProject.is_open = editProject.is_open
-//     if (projectData.date_created !== editProject.date_created) updatedProject.date_created = new Date(editProject.date_created).toISOString()
-//     if (projectData.category !== editProject.category) updatedProject.category = editProject.category
-//     if (projectData.closing_date !== editProject.closing_date) updatedProject.closing_date = new Date(editProject.closing_date).toISOString()
-
-    
-//     // Is user logged in and have they put something in all fields?
-//     if (Object.keys(updatedProject).length > 0) {
-//       try {
-//         const response = await fetch(
-//           `${process.env.REACT_APP_API_URL}projects/${projectData.id}`,
-//           {
-//             method: "put",
-//             headers: {
-//               "Content-Type": "application/json",
-//               'Authorization': `Token ${token}`,
-//             },
-//             body: JSON.stringify({...updatedProject}),
-//           }
-//         );
-//         const data = await response.json();
-//         console.log(data)
-//         // THIS IS HOW YOU NAVIGATE AUTOMATICALLY
-//         navigate(`/project/${projectData.id}`);
-//       } catch (err) {
-//         console.log(err);
-//       }
-//     }
-//   };
-
-//   const formFields = [
-//     {
-//        id: "title",
-//        label: "Title",
-//        placeholder: "Enter Title",
-//        type: "text",
-//     },
-//     {
-//         id: "description",
-//         label: "Description",
-//         placeholder: "Enter Description",
-//         type: "text",
-//     },
-//     {
-//         id: "goal",
-//         label: "Goal",
-//         placeholder: "Enter Goal",
-//         type: "text",
-//     },
-//     {
-//         id: "image",
-//         label: "Image",
-//         placeholder: "Enter Image",
-//         type: "url",
-//     },
-//         {
-//        id: "is_open",
-//        label: "Is open",
-//        placeholder: "Enter if Project Open",
-//        type: "checkbox",
-//     },
-//     {
-//         id: "date_created",
-//         label: "Date created",
-//         placeholder: "Enter Title",
-//         type: "date",
-//     },
-//     {
-//         id: "category",
-//         label: "Category",
-//         placeholder: "Select Category",
-//         type: "select",
-//     },
-//     {
-//         id: "closing_date",
-//         label: "Closing date",
-//         placeholder: "Enter Closing Date",
-//         type: "date",
-//     },
-// ]
-
-//     return ( 
-//         <form>
-//             {formFields.map((field, key) => {
-//                 return (
-//                 <div key={`${key}-${field.id}`}>
-//                     <label htmlFor={field.id}>
-//                         {field.label}
-//                     </label>
-//                     <input
-//                         type={field.type}
-//                         id={field.id}
-//                         placeholder={field.placeholder}
-//                         onChange={handleChange}
-//                     />
-//                 </div>
-//                 )
-//             })}
-//             <button type="submit" onClick={handleSubmit}>
-//                 Edit Project
-//             </button>
-//         </form>
-//     )
-// }
-
-// export default EditProjectForm;

@@ -129,7 +129,7 @@ function ProjectForm(projectData) {
                 )
             })}
             <button type="submit" onClick={handleSubmit}>
-                Post Project
+            Post Invention
             </button>
         </form>
     )

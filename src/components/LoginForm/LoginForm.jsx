@@ -20,31 +20,35 @@ function LoginForm() {
     }));
   };
 
-//   THINKIFIC VERSION:
-//   const postData = async () => {
-//     const response = await fetch(
-//       `${process.env.REACT_APP_API_URL}api-token-auth/`,
-//       {
-//         method: "post",
-//         headers: {
-//           "Content-Type": "application/json",
-//         },
-//         body: JSON.stringify(credentials),
-//       }
-//     );
-//     return response.json();
-//   };
+  // // THINKIFIC VERSION:
+  // const postData = async () => {
+  //   const response = await fetch(
+  //     `${process.env.REACT_APP_API_URL}users/authenticate/`,
+  //     {
+  //       method: "post",
+  //       headers: {
+  //         "Content-Type": "application/json",
+  //       },
+  //       body: JSON.stringify(credentials),
+  //     }
+  //   );
+  //   return response.json();
+  // };
 
-//   const handleSubmit = (event) => {
-//     event.preventDefault();
-//     if (credentials.username && credentials.password) {
-//       postData().then((response) => {
-//         window.localStorage.setItem("token", response.token);
-//       });
-//     }
-//   };
+  // const handleSubmit = (event) => {
+  //   event.preventDefault();
+  //   if (credentials.username && credentials.password) {
+  //     postData().then((response) => {
+  //       window.localStorage.setItem("token", response.token);
+      
+  //     navigate(`/users/${data.id}`);
+  //     } catch (err) {
+  //      console.log(err);
+  //     };
+  //   }
+  // };
 
-// ALEX'S VERSION:
+// OTHER VERSION:
   const handleSubmit = async (event) => {
     event.preventDefault();
     if (credentials.username && credentials.password) {

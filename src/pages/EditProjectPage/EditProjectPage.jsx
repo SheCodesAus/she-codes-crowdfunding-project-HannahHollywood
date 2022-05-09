@@ -26,7 +26,7 @@ function EditProjectPage(){
         });
 
         // fetch categories
-        fetch(`${process.env.REACT_APP_API_URL}category/`)
+        fetch(`${process.env.REACT_APP_API_URL}categories/`)
                 .then((results) => {
                     return results.json();
                 })
@@ -41,7 +41,40 @@ function EditProjectPage(){
     }
 
 
-    return <EditProjectForm project={projectInfo} categories={categoryData}/>;
+    return (
+        <>
+        <div className="editproject-form-wrapper">
+            <div id="editproject-form">
+                    <h1>Edit Your Invention ⚛︎</h1>
+                    <EditProjectForm project={projectInfo} categories={categoryData}/>
+            </div>
+        </div>
+        
+        <div className="categories">
+            <h1>Type to Select from the Following 14 Categories:</h1>
+            <h2>Genius Categories:</h2>
+                <ul>
+                    <li>Diabolical</li>
+                    <li>Whimsical</li>
+                    <li>Experimental</li>
+                    <li>Mischievous</li>
+                    <li>Maniacal</li>
+                    <li>Weaponry</li>
+                    <li>Evil</li>
+                </ul>
+            <h2>"Normie" Categories</h2>
+                <ul>
+                    <li>Music</li>
+                    <li>Food</li>
+                    <li>Animals</li>
+                    <li>Money</li>
+                    <li>Space</li>
+                    <li>Time</li>
+                    <li>Silly</li>
+                </ul>
+        </div>
+        </>
+    );
 }
 
 export default EditProjectPage;
