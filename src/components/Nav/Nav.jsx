@@ -1,7 +1,7 @@
 // Imports
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { Button } from "./Button/Button";
-import { Link, useNavigate } from "react-router-dom";
+import { Link, useNavigate, useParams } from "react-router-dom";
 
 // Styles
 import "./Nav.css";
@@ -10,6 +10,7 @@ function Nav() {
 
     // Hamburger State
     const [isMenuExpanded, setMenuExpanded] = useState(false);
+    const [userData, setUserData] = useState();
 
     const navigate = useNavigate();
 
@@ -59,8 +60,22 @@ function Nav() {
         setMenuExpanded(!isMenuExpanded)
     };
 
+    // Hooks
+    const { id } = useParams();
+
+    // Actions & Helpers
+    useEffect(() => {
+        fetch(`${process.env.REACT_APP_API_URL}users/${userData}`)
+        .then((results) => {
+            return results.json();
+        })
+        .then((data) => {
+            setUserData(data);
+        })
+    }, [id]);
+
     return(
-        <nav className="NavbarItems">
+        <nav className="navbar-items">
             <Link className="navbar-logo" to="/"><h1>The <span>Fund</span>-Inator! <i className="fa fa-robot"></i></h1></Link>
             
             <div className="menu-icon" onClick={handleClick}>
@@ -80,6 +95,7 @@ function Nav() {
                     <Link className="nav-links" to="/projects/">Inventions</Link>
                     <Link className="nav-links" to="/users/">Geniuses</Link>
                     <i className="nav-links">Profile</i>
+                    {/* <Link className="nav-links" to={`/users/${userData.id}`}>Profile</Link> */}
                     {checkUser(false)}
             </ul>
             {checkUser(true)}

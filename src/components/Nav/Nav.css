@@ -1,4 +1,4 @@
-.NavbarItems {
+.navbar-items {
     background-color: #14d020;
     height: 80px;
     display: flex;
@@ -57,7 +57,7 @@
 }
 
 @media screen and (max-width: 960px) {
-    .NavbarItems {
+    .navbar-items {
         position: relative;
     }
 
@@ -139,6 +139,7 @@
         background: #fff;
         color: #6568f4;
         transition: 250ms;
+        cursor: pointer;
     }
 
     Button {

@@ -8,7 +8,7 @@ import Nav from "./components/Nav/Nav";
 import HomePage from "./pages/HomePage/HomePage";
 import ProjectPage from "./pages/ProjectPage/ProjectPage";
 import ProjectFormPage from "./pages/ProjectPage/ProjectFormPage/ProjectFormPage";
-import EditProjectFormPage from "./pages/ProjectPage/ProjectFormPage/EditProjectFormPage";
+import EditProjectPage from "./pages/EditProjectPage/EditProjectPage";
 
 import RegistrationPage from "./pages/RegistrationPage/RegistrationPage";
 import LoginPage from "./pages/LoginPage/LoginPage";
@@ -35,7 +35,7 @@ function App() {
           <Route path="/projects/" element={<InventionsPage />} />
           <Route path="/projects/create" element={<ProjectFormPage />} />
           <Route path="/project/:id" element={<ProjectPage />} />
-          <Route path="/projects/edit-invention/:id" element={<EditProjectFormPage />} />
+          <Route path="/projects/edit-invention/:id" element={<EditProjectPage />} />
 
           <Route path="/pledges/:id" element={<PledgePage />} />
           <Route path="/category/:slug" element={<CategoryPage/>} />
