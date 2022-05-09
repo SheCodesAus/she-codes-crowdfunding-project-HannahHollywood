@@ -1,122 +1,118 @@
 import React, { useState } from "react";
 
+
 // Imports
 import { useNavigate } from "react-router-dom";
 
-function EditProfileForm() {
+function EditProfileForm({user}) {
   // State
-  const [editUserData, setEditUserData] = useState({
-  "username": "",
-	"email": "",
-	"avatar": "",
-	"bio": "",
-	"website": "",
-  });
+    const [editUserInfo, setEditUserInfo] = useState(user);
 
-  // // Hooks
-  const navigate = useNavigate();
 
-  // Actions and Helpers
-  const handleChange = (event) => {
-    const { id, value } = event.target;
-    setEditUserData((prevEditUserData) => ({
-      ...prevEditUserData,
-      [id]: value,
-    }));
-  };
+    console.log("------>", editUserInfo)
 
-  const handleSubmit = async (event) => {
-    event.preventDefault();
+    // Actions
+    const handleChange = (event) => {
+        const { id, value } = event.target;
+        setEditUserInfo((prevEditUserInfo) => ({
+            ...prevEditUserInfo,
+            [id]: value,
+        }));
+    };
 
-    const token = window.localStorage.getItem("token")
-    console.log("handleSubmit", editUserData)
-    console.log("handleToken", token)
-    
-    // Is user logged in and have they put something in all fields?
-    if (token && editUserData.username && editUserData.email && editUserData.avatar && editUserData.bio && editUserData.website) {
-      try {
-        const response = await fetch(
-          `${process.env.REACT_APP_API_URL}users/`,
-          {
-            method: "put",
-            headers: {
-              "Content-Type": "application/json",
-              'Authorization': `Token ${token}`,
-            },
-            body: JSON.stringify({
-              username: editUserData.username, 
-              email: editUserData.email,
-              avatar: editUserData.avatar,
-              bio: editUserData.bio,
-              website: editUserData.website
-            }),
-          }
-        );
-        const data = await response.json();
-        console.log("result", data)
-        // THIS IS HOW YOU NAVIGATE AUTOMATICALLY
-        navigate(`/users/${data.id}`);
-      } catch (err) {
-        console.log(err);
-      }
+    const navigate = useNavigate();
+
+    const handleSubmit = async(event) => {
+        event.preventDefault();
+        const token = window.localStorage.getItem("token");
+        if (!token)return;
+
+        const updatedUser = {}
+        if (user.username !== editUserInfo.username) updatedUser.username = editUserInfo.username
+        if (user.email !== editUserInfo.email) updatedUser.email = editUserInfo.email
+        if (user.avatar !== editUserInfo.avatar) updatedUser.avatar = editUserInfo.avatar
+        if (user.bio !== editUserInfo.bio) updatedUser.bio = editUserInfo.bio
+        if (user.website !== editUserInfo.website) updatedUser.website = editUserInfo.website
+
+        if (Object.keys(updatedUser).length > 0) {
+            try {
+                const res = await 
+                fetch(`${process.env.REACT_APP_API_URL}users/${user.id}/`, {
+                    method:"put",
+                    headers: {
+                        "Content-Type": "application/json",
+                        Authorization: `Token ${token}`,
+                    },
+                    body: JSON.stringify({...updatedUser}),
+                });
+                const data = await res.json()
+                console.log(data);
+
+                navigate(`/users/${user.id}/`);               
+            } catch(err) {
+                console.log(err);
+            }
+        }
     }
-  };
 
-  const formFields = [
-    {
-        id: "username",
-        label: "Username",
-        placeholder: "Update your Username",
-        type: "text",
-     },
-    {
-        id: "email",
-        label: "Email",
-        placeholder: "Update your Email",
-        type: "email",
-    },
-    {
-        id: "avatar",
-        label: "Avatar",
-        placeholder: "Copy Image URL",
-        type: "url",
-    },
-    {
-        id: "bio",
-        label: "Bio",
-        placeholder: "Tell us a little about yourself",
-        type: "text",
-    },
-    {
-        id: "website",
-        label: "Website",
-        placeholder: "Enter Social Media Link",
-        type: "url",
-    },
-]
 
-    return ( 
+    return (
+        <div className="form">
         <form>
-            {formFields.map((field, key) => {
-                return (
-                <div key={`${key}-${field.id}`}>
-                    <label htmlFor={field.id}>
-                        {field.label}
-                    </label>
-                    <input
-                        type={field.type}
-                        id={field.id}
-                        placeholder={field.placeholder}
-                        onChange={handleChange}
-                    />
-                </div>
-                )
-            })}
-            <button type="submit" onClick={handleSubmit}>
-                Save Updates
+            <div className="form-item">
+                <label htmlFor="username">Username:</label>
+                <input
+                    type="text"
+                    id="username"
+                    value={editUserInfo.username}
+                    onChange={handleChange}
+                />
+            </div>
+            <div className="form-item">
+                <label htmlFor="email">Email:</label>
+                <input
+                    type="text"
+                    id="email"
+                    value={editUserInfo.email}
+                    onChange={handleChange}
+                />
+            </div>
+            <div className="form-item">
+                <label htmlFor="avatar">Avatar:</label>
+                <input
+                    type="url"
+                    id="avatar"
+                    value={editUserInfo.avatar}
+                    onChange={handleChange}
+                />
+            </div>
+            <div className="form-item">
+                <label htmlFor="bio">Bio:</label>
+                <input
+                    type="text"
+                    id="bio"
+                    value={editUserInfo.bio}
+                    onChange={handleChange}
+                />
+            </div>
+            <div className="form-item">
+                <label htmlFor="website">Website:</label>
+                <input
+                    type="url"
+                    id="website"
+                    value={editUserInfo.website}
+                    onChange={handleChange}
+                />
+            </div>
+            <div className="form-item">
+              <button type="submit" onClick={handleSubmit}>
+              Update Profile
             </button>
+            </div>
         </form>
-    )
-}
+        </div> 
+        )
+    }
+
 
 export default EditProfileForm;

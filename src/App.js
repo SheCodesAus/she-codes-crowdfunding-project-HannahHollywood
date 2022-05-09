@@ -13,7 +13,7 @@ import EditProjectPage from "./pages/EditProjectPage/EditProjectPage";
 import RegistrationPage from "./pages/RegistrationPage/RegistrationPage";
 import LoginPage from "./pages/LoginPage/LoginPage";
 import UserPage from "./pages/UserPage/UserPage";
-import EditProfilePage from "./pages/UserPage/EditProfileForm/EditProfileForm";
+import EditProfilePage from "./pages/UserPage/EditProfilePage/EditProfilePage";
 
 import BadgeIconPage from "./pages/UserPage/BadgeIconPage/BadgeIconPage";
 import PledgePage from "./pages/PledgePage/PledgePage";
