@@ -1,23 +1,26 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
+
+// Styles
+import './GeniusListPage.css';
 
 // Components
-// import ProjectCard from "../../components/ProjectCard/ProjectCard";
+import GeniusCard from "../../components/GeniusCard/GeniusCard";
 
 function GeniusListPage() {
 
     // States
-    // const [geniusList, setGeniusList] = useState([]);
+    const [geniusList, setGeniusList] = useState([]);
 
-    // // Action & Helpers
-    // useEffect(() => {
-    //     fetch(`${process.env.REACT_APP_API_URL}users`)
-    //         .then((results) => {
-    //             return results.json();
-    //         })
-    //         .then((data) => {
-    //             setGeniusList(data);
-    //         });
-    // }, []);
+    // Action & Helpers
+    useEffect(() => {
+        fetch(`${process.env.REACT_APP_API_URL}users`)
+            .then((results) => {
+                return results.json();
+            })
+            .then((data) => {
+                setGeniusList(data);
+            });
+    }, []);
 
     return (
         <div className="genius-list-wrapper">
@@ -25,14 +28,14 @@ function GeniusListPage() {
                 <h1>Find your Favourite Genius Here!</h1>
             </div>
 
-            {/* <div id="genius-list">
+            <div id="genius-list">
                 {geniusList.map((userData, key) => {
-                    return <ProjectCard 
-                        key={`project-${projectData.id}`} 
-                        projectData={projectData}
+                    return <GeniusCard 
+                        key={`/users-${userData.id}`} 
+                        userData={userData}
                     />;
                 })}
-            </div> */}
+            </div>
         </div>
     );
 }
