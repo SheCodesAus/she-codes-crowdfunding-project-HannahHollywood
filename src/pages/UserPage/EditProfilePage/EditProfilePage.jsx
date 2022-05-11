@@ -31,9 +31,9 @@ function EditProfilePage(){
 
     return (
         <>
-        <div className="editprofile-form-wrapper">
+        <div className="edit-act-container">
             <div id="editprofile-form">
-                    <h1>Edit Your Your Profile ⚛︎</h1>
+                    <h1 className="edit-account-title">Edit Your Your Profile ⚛︎</h1>
                     <EditProfileForm user={userData} />
             </div>
         </div>

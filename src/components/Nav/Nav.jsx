@@ -1,7 +1,8 @@
 // Imports
 import React, { useState, useEffect } from "react";
 import { Button } from "./Button/Button";
-import { Link, useNavigate, useParams } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
+// import { useParams } from "react-router-dom";
 
 // Styles
 import "./Nav.css";
@@ -15,12 +16,12 @@ function Nav() {
     const [userData, setUserData] = useState();
 
     // Hooks
-    const { id } = useParams();
+    // const { id } = useParams();
 
     // Actions & Helpers
     // Below: Attempting to get 'Profile' Link to work...
     useEffect(() => {
-        fetch(`${process.env.REACT_APP_API_URL}users/${id}`)
+        fetch(`${process.env.REACT_APP_API_URL}users/${userData}`)
         .then((results) => {
             return results.json();
         })
@@ -37,9 +38,9 @@ function Nav() {
         navigate("/login/")
     }
 
-    const navigateToProfile = () => {
-        navigate(`users/${userData}`)
-    }
+    // const navigateToProfile = () => {
+    //     navigate(`users/${userData}`)
+    // }
 
     const navigateToSignUp = () => {
         navigate("users/register")
@@ -84,13 +85,13 @@ function Nav() {
     }
 
     const profileLink = (profileLinkVisible) => {
-        const AuthenticatedUser = window.localStorage.getItem("token");
+        const authenticatedUser = window.localStorage.getItem("token");
 
         const profileButton = <i className="profile-link">Profile</i>;
         const signUpButton = <button className="nav-links" onClick={navigateToSignUp}>Sign Up</button>;
 
         if (profileLinkVisible) {
-            return AuthenticatedUser
+            return authenticatedUser
                 ? profileButton
                 : signUpButton
         }

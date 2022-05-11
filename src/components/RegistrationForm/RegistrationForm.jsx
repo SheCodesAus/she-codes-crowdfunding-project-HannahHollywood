@@ -57,8 +57,18 @@ function RegistrationForm() {
         const data = await response.json();
         console.log(data)
         window.localStorage.setItem("token", data.token);
-        // THIS IS HOW YOU NAVIGATE AUTOMATICALLY
+        if (data.token===undefined) {
+          console.log("cannot register authentication token")
+          return (
+            <>
+            <h2>Please Try Again</h2>
+            </>
+          );
+        }
+      else {
+      // THIS IS HOW YOU NAVIGATE AUTOMATICALLY
         navigate(`/users/${data.id}`);
+      }
       } catch (err) {
         console.log(err);
       }

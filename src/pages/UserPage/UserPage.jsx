@@ -59,18 +59,30 @@ function UserPage() {
 
     // Normal State
     return (
-        <div className="profile-wrapper">
-            <div className="photo-and-info">
-                <h1>Welcome to {userData.username}'s Genius Page!</h1>
-                <img className="avatar" src={userData.avatar} alt="profile avatar"/>
-                <ul>
-                    <li>{userData.bio}</li>
-                    <li>{userData.email}</li>
-                    <li>{userData.website}</li>
-                </ul>
+        <div className="user-profile-container">
+            <div className="profile-header">
+                <h1 id="prof-header-text">Welcome to <span>{userData.username}'s</span> Genius Page!</h1>
             </div>
 
-            <div className="badge-card">
+            <div className="user-profile-info">
+                <ul className="user-input">
+                    <li><img className="avatar" src={userData.avatar} alt="profile avatar"/></li>
+                    <li id="email"><i class="fa fa-envelope"></i> {userData.email}</li>
+                    <li id="website">Follow Me:<br></br>
+                        <a href={userData.website} target="_blank" rel="noopener noreferrer">
+                            <i class="fa fa-globe"></i>
+                        </a>                
+                    </li>
+                </ul>
+
+                <div className="bio-section">
+                    <h4 id="about-title">About: </h4>
+                    <p id="bio-section">{userData.bio}</p>
+                </div>
+            </div>
+
+            <div className="badge-card-container">
+                <div className="badge-card">
                     {badgeIconData}
                     {userData.badges.map((badgeIconData, key) => {
                         return (
@@ -81,10 +93,12 @@ function UserPage() {
                             />
                         );
                     })}
+                </div>
             </div>
 
-            <button><Link to="edit-profile">Edit Profile</Link></button>
-
+            <div className="edit-button-div">
+                <button className="edit-profile-button"><Link to="edit-profile">Edit Profile</Link></button>
+            </div>
         {/* <div className="user-invention-list">
             <h1>View all of {userData.username}'s Inventions</h1>
             <ul>

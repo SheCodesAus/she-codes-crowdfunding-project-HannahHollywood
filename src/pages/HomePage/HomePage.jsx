@@ -39,7 +39,7 @@ function HomePage() {
                 </p>
                 <br></br>
                 <p>
-                    <button><Link to="/projects/create/">POST NEW PROJECT</Link></button>
+                    <button className="create-invention-btn"><Link to="/projects/create/">Create Your Invention</Link></button>
                 </p>
 
             </div>

@@ -152,6 +152,9 @@ i.profile-link {
         left: 0;
         transform: translate(5%, 65%);
     }
+    .navbar-logo h1 {
+        font-size: 1.8rem;
+    }
 
     .menu-icon {
         display: block;

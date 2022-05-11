@@ -1,7 +1,90 @@
+.user-profile-container {
+  font-family: 'Ubuntu', sans-serif;
+}
+
+.user-profile-info {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center; 
+  justify-content: center;
+}
+
+.profile-header {
+  text-align: -webkit-center;
+}
+
+#prof-header-text {
+  text-transform: capitalize;
+  text-decoration: none;
+  width: 50%;
+  text-align: center;
+  text-decoration: none;
+  color: #4845c7;
+  font-size: 1.6rem;
+  margin: 28px;
+}
+#prof-header-text span {
+  color: #14D020;
+}
+
+.user-input {
+  list-style-type: none;
+  text-align: center;
+  padding: 2px;
+  line-height: 1.5;
+}
+.user-input img {
+  border-radius: 50%;
+  width: 20rem;
+  border: 5px solid #14D020;
+}
+
+li.website {
+  width: 60px;
+  color: #4845c7;
+}
+
+.fa-globe:before {
+  color: #14D020;
+  width: 10px;
+}
+
+.bio-section {
+  line-height: 2;
+  width: 55%;
+  margin-left: 20px;
+  font-size: 1rem;
+  text-align: center;
+  padding: 8px;
+}
+
+#about-title {
+  font-size: 1.4rem;
+  margin: auto;
+  color: #4845c7;
+}
+
+/* Badges */
+div.badge-card {
+  display: inline-flex;
+  flex-direction: inherit;
+  flex-wrap: wrap;
+}
+ul.badge-card {
+  width: 90px;
+
+}
+.badge-card-container {
+  display: flex;
+  align-items: center; 
+  justify-content: center;
+  padding: 15px;
+}
 .badge-card {
     width: fit-content;
     border: 1px solid #4845c7;
     box-shadow: 0px 0px 5px #14d020;
+    list-style: none;
   }
   
 .badge-card img {
@@ -16,3 +99,54 @@
   .badge-card li {
       text-align: center;
   }
+
+/* Edit Profile Button */
+.edit-button-div {
+  display: flex; 
+  align-items: center; 
+  justify-content: center;
+  padding: 15px;
+}
+.edit-profile-button {
+  display: inline-block;
+  font-family: 'Ubuntu';
+  appearance: none;
+  background-color: transparent;
+  border: 2px solid #14D020;
+  border-radius: 15px;
+  box-sizing: border-box;
+  color: #633A83;
+  cursor: pointer;
+  width: fit-content;
+  font-size: 12px;
+  font-weight: 600;
+  line-height: normal;
+  margin: 0;
+  min-height: 40px;
+  min-width: 0;
+  outline: none;
+  padding: 11px 13px;
+  text-align: center;
+  text-decoration: none;
+  transition: all 300ms cubic-bezier(.23, 1, 0.32, 1);
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+  will-change: transform;
+}
+.edit-profile-button a {
+  color: #4845c7;
+  text-decoration: none;
+
+}
+.edit-profile-button:hover a {
+  color: #FFFFFF;
+}
+.edit-profile-button:hover {
+  background-color: #4845c7;
+  font-weight: bolder;
+  box-shadow: rgba(0, 0, 0, 0.25) 0 8px 15px;
+}
+.edit-profile-button:active {
+  transform: translateY(0);
+}
