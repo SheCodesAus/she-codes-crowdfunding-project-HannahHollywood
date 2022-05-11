@@ -21,6 +21,7 @@ import CategoryPage from "./pages/ProjectPage/CategoryPage/CategoryPage";
 
 import InventionsPage from "./pages/InventionsPage/InventionsPage";
 import GeniusListPage from "./pages/GeniusListPage/GeniusListPage";
+import PageNotFound from "./pages/PageNotFound/PageNotFound";
 
 // Styles
 import "./App.css";
@@ -39,7 +40,6 @@ function App() {
 
           <Route path="/pledges/:id" element={<PledgePage />} />
           <Route path="/category/:slug" element={<CategoryPage/>} />
-
           <Route path="/users/" element={<GeniusListPage />} />
 
           <Route path="/users/:id" element={<UserPage />} />
@@ -49,6 +49,7 @@ function App() {
           <Route path="/login" element={<LoginPage />} />
 
           <Route path="/" element={<HomePage />} />
+          <Route path="/error/not-found" element={<PageNotFound />} />
         </Routes>
       </div>
     </Router>

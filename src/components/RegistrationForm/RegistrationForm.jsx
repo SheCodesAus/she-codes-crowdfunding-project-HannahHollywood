@@ -56,6 +56,7 @@ function RegistrationForm() {
         );
         const data = await response.json();
         console.log(data)
+        window.localStorage.setItem("token", data.token);
         // THIS IS HOW YOU NAVIGATE AUTOMATICALLY
         navigate(`/users/${data.id}`);
       } catch (err) {

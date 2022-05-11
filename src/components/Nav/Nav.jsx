@@ -10,14 +10,42 @@ function Nav() {
 
     // Hamburger State
     const [isMenuExpanded, setMenuExpanded] = useState(false);
+
+    // Below: Attempting to get 'Profile' Link to work...
     const [userData, setUserData] = useState();
 
+    // Hooks
+    const { id } = useParams();
+
+    // Actions & Helpers
+    // Below: Attempting to get 'Profile' Link to work...
+    useEffect(() => {
+        fetch(`${process.env.REACT_APP_API_URL}users/${id}`)
+        .then((results) => {
+            return results.json();
+        })
+        .then((data) => {
+            setUserData(data);
+        })
+    }, []);
+
+
+    // Navigation Links
     const navigate = useNavigate();
 
     const navigateToLogin = () => {
         navigate("/login/")
     }
 
+    const navigateToProfile = () => {
+        navigate(`users/${userData}`)
+    }
+
+    const navigateToSignUp = () => {
+        navigate("users/register")
+    }
+
+    // Handlers and Auth Checks
     const handleSignOut = () => {
         // It is assumed that a token belongs to a user who is logged in
         // so to sign a user out we will remove these from local storage
@@ -30,7 +58,7 @@ function Nav() {
     //check if user has token and change nav
     const checkUser = (isBurgerMenu) => {
         // Get the user token. The !! ensure that the token "string" or undefined becomes true or false
-        const isUserLoggedIn = !!window.localStorage.getItem("token");
+        const isUserLoggedIn = window.localStorage.getItem("token");
         // console.log("isuserloggedin", isUserLoggedIn)
 
         const className = "nav-links-mobile";
@@ -55,24 +83,23 @@ function Nav() {
         }   
     }
 
+    const profileLink = (profileLinkVisible) => {
+        const AuthenticatedUser = window.localStorage.getItem("token");
+
+        const profileButton = <i className="profile-link">Profile</i>;
+        const signUpButton = <button className="nav-links" onClick={navigateToSignUp}>Sign Up</button>;
+
+        if (profileLinkVisible) {
+            return AuthenticatedUser
+                ? profileButton
+                : signUpButton
+        }
+    }
+
     // Hamburger Handlers
     const handleClick = () => {
         setMenuExpanded(!isMenuExpanded)
     };
-
-    // Hooks
-    const { id } = useParams();
-
-    // Actions & Helpers
-    useEffect(() => {
-        fetch(`${process.env.REACT_APP_API_URL}users/${userData}`)
-        .then((results) => {
-            return results.json();
-        })
-        .then((data) => {
-            setUserData(data);
-        })
-    }, [id]);
 
     return(
         <nav className="navbar-items">
@@ -94,8 +121,8 @@ function Nav() {
                     <Link className="nav-links" to="/">Home</Link>
                     <Link className="nav-links" to="/projects/">Inventions</Link>
                     <Link className="nav-links" to="/users/">Geniuses</Link>
-                    <i className="nav-links">Profile</i>
-                    {/* <Link className="nav-links" to={`/users/${userData.id}`}>Profile</Link> */}
+                    {profileLink(true)}
+                    {/* <i className="nav-links">Profile</i> */}
                     {checkUser(false)}
             </ul>
             {checkUser(true)}

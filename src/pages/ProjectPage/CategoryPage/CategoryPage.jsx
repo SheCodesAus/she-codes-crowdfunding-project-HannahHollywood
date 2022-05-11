@@ -39,7 +39,7 @@ function CategoryPage() {
                         return (
                             <ProjectCard 
                             key={`project-${projectData.id}`} 
-                        projectData={projectData} />
+                            projectData={projectData} />
                         );
                     })}
                 </div>

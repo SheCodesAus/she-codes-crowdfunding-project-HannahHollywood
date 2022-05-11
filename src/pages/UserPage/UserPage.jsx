@@ -4,13 +4,9 @@ import { useParams } from "react-router-dom";
 // Imports
 import { Link } from "react-router-dom";
 // import ProjectCard from "../../components/ProjectCard/ProjectCard";
-// import BadgeIconPage from "./BadgeIconPage/BadgeIconPage";
 
 // Styles
 import "./UserPage.css";
-
-// Imports
-// import { Link } from "react-router-dom";
 
 // Components
 import BadgesIcon from "../../components/BadgesIcon/BadgesIcon";
@@ -19,7 +15,7 @@ function UserPage() {
     // State
     const [userData, setUserData] = useState();
     // const [projectList, setProjectList] = useState([]);
-    const [badgeIconData, setBadgeIconData] = useState();
+    const [badgeIconData, setBadgeIconData] = useState([]);
 
     // Hooks
     const { id } = useParams();
@@ -46,7 +42,7 @@ function UserPage() {
     // }, []);
 
     useEffect(() => {
-        fetch(`${process.env.REACT_APP_API_URL}/users/badges/${id}`)
+        fetch(`${process.env.REACT_APP_API_URL}/users/badges/`)
         .then((results) => {
             return results.json();
         })
@@ -60,11 +56,6 @@ function UserPage() {
         return <h3>Loading profile...</h3>;
 
     }
-
-    // // Loading State
-    // if (!badgeIconData) {
-    //     return <h3>You have no badges 😔</h3>;
-    // }
 
     // Normal State
     return (
@@ -84,7 +75,7 @@ function UserPage() {
                     {userData.badges.map((badgeIconData, key) => {
                         return (
                             <BadgesIcon 
-                                key={`users/badges-${badgeIconData.id}`} 
+                                key={`/badges-${badgeIconData.id}`} 
                                 image={badgeIconData.image} 
                                 description={badgeIconData.description} 
                             />

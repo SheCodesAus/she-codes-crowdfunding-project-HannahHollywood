@@ -32,6 +32,10 @@
     margin-right: 2rem;
 }
 
+button {
+    cursor: pointer;
+}
+
 .nav-links {
     color: #fff;
     text-decoration: none;
@@ -41,6 +45,29 @@
     background-color: #4845c7;
     border-radius: 4px;
     transition: all 0.2s ease-out;
+}
+
+button.nav-links {
+    font-size: 1.2rem;
+    color: #fff;
+    background-color: #14d020;
+    border: #14d020;
+    text-decoration: none;
+    padding: 0.5rem 1rem;
+}
+button.nav-links:hover {
+    background-color: #4845c7;
+    border-radius: 4px;
+    transition: all 0.2s ease-out;
+}
+
+i.profile-link {
+    color: #fff;
+    text-decoration: none;
+    padding: 0.5rem 1rem;
+}
+.profile-link:hover {
+    cursor: not-allowed;
 }
 
 .fa-bars {
@@ -100,6 +127,25 @@
         width: 50%;
     }
 
+    button.nav-links {
+        text-align: center;
+        padding: 1.5rem;
+        width: 100%;
+        display: table;
+        margin: auto;
+        border-radius: 4px;
+        width: 50%;
+        text-decoration: none;
+        color: #fff;
+        font-size: 1.5rem;
+        background: none;
+    }
+    button.nav-links:hover {
+        background-color: #4845c7;
+        border-radius: 4px;
+        transition: all 0.2s ease-out;
+    }
+
     .navbar-logo {
         position: absolute;
         top: 0;
@@ -133,6 +179,7 @@
         text-decoration: none;
         color: #fff;
         font-size: 1.5rem;
+        border: none;
     }
 
     .nav-links-mobile:hover {

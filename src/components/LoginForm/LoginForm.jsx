@@ -65,10 +65,21 @@ function LoginForm() {
         );
         const data = await response.json();
         console.log(data)
+
         window.localStorage.setItem("token", data.token);
-        
-        // THIS IS HOW YOU NAVIGATE AUTOMATICALLY
+        window.localStorage.setItem("username", credentials.username);
+        if (data.token===undefined) {
+          console.log("invalid credentials")
+          return (
+            <>
+            <h2>Incorrect Login Details</h2>
+            <h2>Please Try Again</h2>
+            </>
+          );
+        }
+      else {
         navigate(`/users/${data.id}`);
+      }
       } catch (err) {
         console.log(err);
       }
