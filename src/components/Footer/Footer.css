@@ -1,0 +1,17 @@
+.footerbottom-container {
+  padding-top: 20px;
+  line-height: 1.2rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+p {
+  text-align: center;
+}
+
+#logo-img {
+    width: 130px;
+    height: auto;
+  }

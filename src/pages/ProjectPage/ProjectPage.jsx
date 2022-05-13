@@ -52,11 +52,11 @@ function ProjectPage() {
     // Loading State
     // "Skeleton" Loading
     if (!projectData) {
-        return <h3>Loading project...</h3>;
+        return <h3>Loading Ivention...</h3>;
     }
 
     if (isError) {
-        return <h3>Project Doesn't Exist...</h3>;
+        return <h3>Invention Doesn't Exist...</h3>;
     }
 
     // Normal State
@@ -64,7 +64,7 @@ function ProjectPage() {
     <div className="project-wrapper">
         <div id="project-title-and-owner">
             <h2>{projectData.title}</h2> 
-            <h3>Invented by: <ProjectOwner owner={projectData.owner} /> on {projectData.date_created}</h3>
+            <h3>Invented by: <ProjectOwner owner={projectData.owner} /> on {new Date(projectData.date_created).toDateString()}</h3>
         </div>
         
         <div className="project-details">
@@ -73,12 +73,12 @@ function ProjectPage() {
                     <li>{projectData.description}</li>
                     <li>Invention Category: {projectData.category}</li>
                     <li>Donation Goal: ${projectData.goal}</li>
-                    <li>Closing Date: {projectData.closing_date}</li>
+                    <li>Closing Date: {new Date(projectData.closing_date).toDateString()}</li>
                 </ul>
         </div>
 
         <div className="pledges-total">
-            <h3>Total Raised: ${projectPledgeAmount} Inventi-Cents!</h3>
+            <h3>Total <span role="img" aria-label="money">💰</span>Inventi-Cents<span role="img" aria-label="money">💰</span> Raised: ${projectPledgeAmount}</h3>
             
             <ProgressBar completed={projectGoalPercentage} bgcolor={"#14D020"} />
             

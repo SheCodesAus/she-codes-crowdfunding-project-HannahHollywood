@@ -51,7 +51,7 @@ function EditProjectPage(){
         </div>
         
         <div className="categories">
-            <h1>Type to Select from the Following 14 Categories:</h1>
+            <h1>Select from the Following 14 Categories:</h1>
             <h2>Genius Categories:</h2>
                 <ul>
                     <li>Diabolical</li>

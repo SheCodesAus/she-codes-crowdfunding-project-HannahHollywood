@@ -1,0 +1,113 @@
+*,*::before, *::after {
+    box-sizing:border-box;
+}
+
+body{
+    margin:0;
+}
+
+.spotlight-header {
+    position: relative;
+    width: 100%;
+    height: auto;
+}
+
+.feature-title {
+    color: white;
+}
+
+.carousel{
+    width: 100%;
+    height: 100vh;
+    position: relative;
+}
+
+.carousel ul {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+ul.data-slides {
+    position: absolute;
+}
+.slide {
+    position: absolute;
+    inset:0;
+    opacity: 0;
+    transition: 200ms opacity ease-in-out;
+    transition-delay: 200ms;
+}
+
+.slide[data-active]{
+    opacity: 1;
+    z-index: 1;
+    transition-delay: 0ms;
+}
+
+.slide img {
+    position: absolute;
+    display: block;
+    width: 100%;
+    height: 100vh;
+    object-fit: cover;
+    object-position: center;
+}
+
+.carousel-button {
+    position: absolute;
+    z-index: 2;
+    background: none;
+    font-size: 4rem;
+    width: 4rem;
+    border: none;
+    top: 50% ;
+    transform: translateY(-50%);
+    color: #14D020;
+    cursor: pointer;
+    border-radius: .25rem;
+    padding: 0 .5rem;
+    background-color: rgba(0, 0, 0, .1);
+}
+
+.carousel-button:hover,
+.carousel-button:focus{
+    color: #14D020;
+    background-color: rgba(0,0,0, .2);
+}
+
+.carousel-button:focus{
+    outline: 1px solid #464FBD;
+}
+
+.carousel-button.prev {
+    left: 1rem;
+    position: absolute;
+}
+
+.carousel-button.next {
+    right: 1rem;
+    position: absolute;
+}
+
+div.feature-div {
+    background-color: #14D020;
+    position: absolute;
+    top: 80%;
+    right: 6rem;
+    padding: 4px;
+}
+
+.feature-div {
+    z-index: 3;
+    background: none;
+    border: none;
+    line-height: 2rem;
+    font-size: 1.5vw;
+    width: 40vw;
+    transform: translateY(-50%);
+    color: white;
+    cursor: pointer;
+    border-radius: .25rem;
+    padding: 30px;
+    background-color: rgba(0, 0, 0, .1);
+}

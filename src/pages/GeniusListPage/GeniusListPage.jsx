@@ -5,6 +5,7 @@ import './GeniusListPage.css';
 
 // Components
 import GeniusCard from "../../components/GeniusCard/GeniusCard";
+import Footer from "../../components/Footer/Footer";
 
 function GeniusListPage() {
 
@@ -36,6 +37,11 @@ function GeniusListPage() {
                     />;
                 })}
             </div>
+
+            <br></br>
+            <footer className="footer-container">
+                <Footer />
+            </footer>
         </div>
     );
 }

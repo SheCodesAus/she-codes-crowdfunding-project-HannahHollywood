@@ -64,37 +64,37 @@ function ProjectForm(projectData) {
     {
        id: "title",
        label: "Title",
-       placeholder: "Enter title",
+       placeholder: "Enter Title",
        type: "text",
     },
     {
         id: "description",
         label: "Description",
-        placeholder: "Enter description",
+        placeholder: "Enter Description",
         type: "text",
     },
     {
         id: "goal",
         label: "Goal",
-        placeholder: "Enter goal",
+        placeholder: "Enter Goal",
         type: "text",
     },
     {
         id: "image",
         label: "Image",
-        placeholder: "Enter image",
+        placeholder: "Enter Image",
         type: "url",
     },
         {
        id: "is_open",
        label: "Is open",
-       placeholder: "Enter if project open",
+       placeholder: "Enter if Project Open",
        type: "checkbox",
     },
     {
         id: "date_created",
         label: "Date created",
-        placeholder: "Enter title",
+        placeholder: "Select Date",
         type: "date",
     },
     {
@@ -106,7 +106,7 @@ function ProjectForm(projectData) {
     {
         id: "closing_date",
         label: "Closing date",
-        placeholder: "Enter closing date",
+        placeholder: "Select Closing Date",
         type: "date",
     },
 ]

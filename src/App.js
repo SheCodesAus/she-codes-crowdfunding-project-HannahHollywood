@@ -1,8 +1,9 @@
 import React from "react";
-import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import { Navigate, BrowserRouter as Router, Routes, Route } from "react-router-dom";
 
 // Components
 import Nav from "./components/Nav/Nav";
+import Footer from "./components/Footer/Footer";
 
 // Pages
 import HomePage from "./pages/HomePage/HomePage";
@@ -21,6 +22,7 @@ import CategoryPage from "./pages/ProjectPage/CategoryPage/CategoryPage";
 
 import InventionsPage from "./pages/InventionsPage/InventionsPage";
 import GeniusListPage from "./pages/GeniusListPage/GeniusListPage";
+import InventiCentsPage from "./pages/InventiCentsPage/InventiCentsPage";
 import PageNotFound from "./pages/PageNotFound/PageNotFound";
 
 // Styles
@@ -49,8 +51,11 @@ function App() {
           <Route path="/login" element={<LoginPage />} />
 
           <Route path="/" element={<HomePage />} />
-          <Route path="/error/not-found" element={<PageNotFound />} />
+          <Route path="/purchase/inventi-cents/" element={<InventiCentsPage />} />
+          <Route path="/404" element={<PageNotFound />} /> 
+          <Route path="/*" element={<Navigate replace to="/404"/>} />
         </Routes>
+        <Footer />
       </div>
     </Router>
   )

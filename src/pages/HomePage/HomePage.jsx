@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 
 // Components
-import ProjectCard from "../../components/ProjectCard/ProjectCard";
+import FeatureCarousel from "../../components/FeatureCarousel/FeatureCarousel";
 
 // Styles
 import './HomePage.css';
@@ -12,7 +12,7 @@ import { Link } from "react-router-dom";
 function HomePage() {
 
     // States
-    const [projectList, setProjectList] = useState([]);
+    const [projectData, setProjectData] = useState();
 
     // Action & Helpers
     useEffect(() => {
@@ -21,43 +21,28 @@ function HomePage() {
                 return results.json();
             })
             .then((data) => {
-                setProjectList(data);
+                setProjectData(data);
             });
-    }, []);
+    }, [projectData]);
 
     return (
         <div className="homepage-wrapper">
+            <div className="feature-carousel">
+                <FeatureCarousel />
+            </div>
+            
             <div id="welcome-text">
-                <h1> 
-                    <img id="logo-img" 
-                        src={`${process.env.PUBLIC_URL}/assets/images/Logo-FundInator.png`} 
-                        alt="logo"/>
-                </h1>
-
+                <br></br>
                 <p id="intro-text">
-                    A website where geniuses can fund their diabolical inventions <span role="img" aria-label="Evil">😈</span>
+                    Have some brilliant ideas of your own?!<span role="img" aria-label="Evil">😈</span>
+                    <br></br>
+                    Create an Account, Post your Invention and watch the Inventi-Cents roll in!
                 </p>
                 <br></br>
                 <p>
                     <button className="create-invention-btn"><Link to="/projects/create/">Create Your Invention</Link></button>
                 </p>
-
             </div>
-
-            <div id="project-list">
-                {projectList.map((projectData, key) => {
-                    return <ProjectCard 
-                        key={`project-${projectData.id}`} 
-                        projectData={projectData}
-                    />;
-                })}
-            </div>
-                
-                <br></br>
-            <div>
-                SOMETHING ELSE WILL GO HERE
-            </div>
-
         </div>
     );
 }

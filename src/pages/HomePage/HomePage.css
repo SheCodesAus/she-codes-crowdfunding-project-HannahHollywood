@@ -1,5 +1,10 @@
 .homepage-wrapper {
   text-align: -webkit-center;
+  height: max-content;
+}
+
+.feature-carousel {
+  position: relative;
 }
 
 #welcome-text {
@@ -10,21 +15,9 @@
   font-size: 20px;
   margin: 10px;
 }
-#logo-img {
-  align-items: center;
-  justify-content: center;
-  width: 100%;
-  height: auto;
-}
 
 #intro-text {
   align-items: center;
-}
-
-#project-list {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
 }
 
 .create-invention-btn {
