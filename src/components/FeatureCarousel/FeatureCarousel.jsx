@@ -60,7 +60,7 @@ function FeatureCarousel() {
                         <Link to="/projects/"><img className="featured-image" src={`${process.env.PUBLIC_URL}/assets/images/Inator.jpeg`} alt="inator" fluid={true}/></Link>
                         <Link to="/projects/"><div className="feature-div">
                             <h2 className="feature-title">Welcome to <br></br>The Fund-Inator!</h2>
-                            <h4 className="feature-txt">A website where geniuses can fund their diabolical inventions <span role="img" aria-label="Evil">😈</span></h4>
+                            <h4 className="feature-txt">A website where geniuses can fund their diabolical Invention-Inators <span role="img" aria-label="Evil">😈</span></h4>
                             <Link to="/purchase/inventi-cents/"><h4 className="purchase-link">Click Here to Purchase Inventi-Cents: <span role="img" aria-label="money">💰</span></h4></Link>
                         </div></Link>
                     </li>

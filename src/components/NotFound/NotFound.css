@@ -1,0 +1,9 @@
+.notfound-page-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    line-height: 2rem;
+    padding: 10px;
+    line-height: 3rem;
+}

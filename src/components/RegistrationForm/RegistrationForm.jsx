@@ -152,9 +152,11 @@ function RegistrationForm() {
                 </div>
                 )
             })}
-            <button className="create-acccount-btn" type="submit" onClick={handleSubmit}>
-                Create Account
-            </button>
+            <div className="create-btn">
+              <button className="create-acccount-btn" type="submit" onClick={handleSubmit}>
+                  Create Account
+              </button>
+            </div>
         </form>
     )
 }
