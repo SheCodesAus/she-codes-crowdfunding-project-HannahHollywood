@@ -1,6 +1,9 @@
 import React, { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 
+// Styles
+import './LoginForm.css';
+
 function LoginForm() {
   // State
   const [credentials, setCredentials] = useState({
@@ -106,7 +109,7 @@ function LoginForm() {
           onChange={handleChange}
         />
       </div>
-      <button type="submit" onClick={handleSubmit}>
+      <button className="login-page-btns" type="submit" onClick={handleSubmit}>
         Login
       </button>
       <br></br>
@@ -115,7 +118,7 @@ function LoginForm() {
     <div>
       <h3>Don't have an account?</h3>
       <p>Sign up Below <span role="img" aria-label="Pointing Down">👇</span></p>
-      <button><Link to="/users/register/">Create Account</Link></button>
+      <button className="login-page-btns"><Link to="/users/register/">Create Account</Link></button>
     </div>
 
     </form>

@@ -1,5 +1,5 @@
 // Imports
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import { Button } from "./Button/Button";
 import { Link, useNavigate } from "react-router-dom";
 // import { useParams } from "react-router-dom";
@@ -12,23 +12,23 @@ function Nav() {
     // Hamburger State
     const [isMenuExpanded, setMenuExpanded] = useState(false);
 
-    // Below: Attempting to get 'Profile' Link to work...
-    const [userData, setUserData] = useState();
+    // // Below: Attempting to get 'Profile' Link to work...
+    // const [userData, setUserData] = useState();
 
     // Hooks
     // const { id } = useParams();
 
     // Actions & Helpers
     // Below: Attempting to get 'Profile' Link to work...
-    useEffect(() => {
-        fetch(`${process.env.REACT_APP_API_URL}users/${userData}`)
-        .then((results) => {
-            return results.json();
-        })
-        .then((data) => {
-            setUserData(data);
-        })
-    }, []);
+    // useEffect(() => {
+    //     fetch(`${process.env.REACT_APP_API_URL}users/${id}`)
+    //     .then((results) => {
+    //         return results.json();
+    //     })
+    //     .then((data) => {
+    //         setUserData(data);
+    //     })
+    // }, [userData]);
 
 
     // Navigation Links
@@ -101,6 +101,9 @@ function Nav() {
     const handleClick = () => {
         setMenuExpanded(!isMenuExpanded)
     };
+    const closeMenu = () => {
+        setMenuExpanded(false)
+    }
 
     return(
         <nav className="navbar-items">
@@ -119,10 +122,11 @@ function Nav() {
                 isMenuExpanded 
                 ? 'nav-menu active' 
                 : 'nav-menu'}>
-                    <Link className="nav-links" to="/">Home</Link>
-                    <Link className="nav-links" to="/projects/">Inventions</Link>
-                    <Link className="nav-links" to="/users/">Geniuses</Link>
+                    <Link className="nav-links" to="/" onClick={() => closeMenu()}>Home</Link>
+                    <Link className="nav-links" to="/projects/" onClick={() => closeMenu()}>Inventions</Link>
+                    <Link className="nav-links" to="/users/" onClick={() => closeMenu()}>Geniuses</Link>
                     {profileLink(true)}
+                    {/* <Link className="nav-links" to={`/users/${userData}`}>Profile</Link> */}
                     {/* <i className="nav-links">Profile</i> */}
                     {checkUser(false)}
             </ul>

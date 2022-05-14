@@ -1,4 +1,4 @@
-.login-container {
+.registration-container {
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -6,7 +6,7 @@
     line-height: 2rem;
 }
 
-.login-container h1 {
+.registration-container h1 {
     color: #4845c7;
     padding-top: 10px;
     padding-bottom: 10px;

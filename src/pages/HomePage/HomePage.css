@@ -1,11 +1,10 @@
 .homepage-wrapper {
   text-align: -webkit-center;
-  height: max-content;
 }
 
-.feature-carousel {
+/* .feature-carousel {
   position: relative;
-}
+} */
 
 #welcome-text {
   align-items: center; 

@@ -3,6 +3,9 @@ import React, { useState } from "react";
 // Imports
 import { useNavigate } from "react-router-dom";
 
+// Styles
+import './RegistrationForm.css';
+
 function RegistrationForm() {
   // State
   const [register, setRegister] = useState({
@@ -78,55 +81,55 @@ function RegistrationForm() {
   const formFields = [
     {
        id: "username",
-       label: "Username",
+       label: "Username: ",
        placeholder: "Enter your Username",
        type: "text",
     },
     {
         id: "password",
-        label: "Password",
-        placeholder: "Enter password",
+        label: "Password: ",
+        placeholder: "Enter Password",
         type: "password",
     },
     {
         id: "password2",
-        label: "Password",
-        placeholder: "Re-enter password",
+        label: "Password: ",
+        placeholder: "Re-enter Password",
         type: "password",
     },
     {
         id: "email",
-        label: "Email",
+        label: "Email: ",
         placeholder: "Enter Email Address",
         type: "email",
     },
         {
        id: "first_name",
-       label: "First Name",
+       label: "First Name: ",
        placeholder: "Enter First Name",
        type: "text",
     },
     {
         id: "last_name",
-        label: "Last Name",
+        label: "Last Name: ",
         placeholder: "Enter Last Name",
         type: "text",
     },
     {
       id: "avatar",
-      label: "Avatar",
+      label: "Avatar: ",
       placeholder: "Copy Image URL",
       type: "url",
   },
     {
       id: "bio",
-      label: "Bio",
+      label: "Bio: ",
       placeholder: "Tell us about yourself",
       type: "text",
   },
     {
       id: "website",
-      label: "Website",
+      label: "Website: ",
       placeholder: "Enter Social Media Link",
       type: "url",
   },
@@ -149,7 +152,7 @@ function RegistrationForm() {
                 </div>
                 )
             })}
-            <button type="submit" onClick={handleSubmit}>
+            <button className="create-acccount-btn" type="submit" onClick={handleSubmit}>
                 Create Account
             </button>
         </form>
