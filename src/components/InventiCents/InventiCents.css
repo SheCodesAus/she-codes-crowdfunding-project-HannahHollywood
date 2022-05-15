@@ -1,19 +1,18 @@
-form {
+.inventicents-container {
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    text-align: center;
     line-height: 2rem;
-    padding-bottom: 10px;
+    padding-top: 20px;
 }
 
-form h3 {
+.inventi-title h1 {
     color: #4845c7;
-    padding-top: 10px;
-    padding-bottom: 10px;
 }
 
-.login-page-btns {
+.inventicents-button {
     color: #4845c7;
     padding-top: 10px;
     font-family: 'Ubuntu';
@@ -41,19 +40,19 @@ form h3 {
     touch-action: manipulation;
     will-change: transform;
   }
-  .login-page-btns a {
+  .inventicents-button a {
     color: #4845c7;
     text-decoration: none;
   }
-  .login-page-btns:hover a {
+  .inventicents-button:hover a {
     color: #FFFFFF;
   }
-  .login-page-btns:hover {
+  .inventicents-button:hover {
     background-color: #4845c7;
     font-weight: bolder;
     color: #FFFFFF;
     box-shadow: rgba(0, 0, 0, 0.25) 0 8px 15px;
   }
-  .login-page-btns:active {
+  .inventicents-button:active {
     transform: translateY(0);
   }

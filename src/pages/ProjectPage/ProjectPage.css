@@ -1,21 +1,169 @@
 .project-wrapper {
   text-align: -webkit-center;
-  margin: inherit;
 }
 
-#project-title-and-owner {
+.project-title-and-owner {
   text-align: center;
   width: 50%;
   text-decoration: none;
   font-size: 20px;
-  margin: 28px;
+  margin: 20px;
 }
 
+.project-title-and-owner h2 {
+  color: #4845C7;
+}
+
+.project-title-and-owner span {
+  color: #00B912;
+}
+
+.project-title-and-owner h4 {
+  margin-top: 5px;
+  font-size: small;
+} 
+
 .project-img {
-    width: 30rem;
-    border: 5px solid green;
+    max-width: 65%;
+    height:auto;
+    border: 5px solid #14D020;
+    border-radius: 25px;
   }
 
-#pledges-and-comments {
-  padding: 0px;
+.project-details ul {
+  line-height: 1.5rem;
+  margin-top: 6px;
+  margin-bottom: 12px;
+}
+
+li span {
+  color: #4845C7;
+}
+
+li {
+  font-weight: 600;
+}
+
+#description {
+  max-width: 85%;
+  height:auto;
+  margin-top: 10px;
+  font-weight: 600;
+  list-style-type: none;
+}
+
+.pledges-total {
+  max-width: 55%;
+  height:auto;
+  margin-top: 10px;
+  padding: 20px;
+  border: 5px dotted #4845c7;
+  border-radius: 25px;
+}
+
+.pledges-total span {
+  color: #4845C7;
+  font-weight: 600;
+}
+
+.pledges-amounts-comments {
+  line-height: 1.5rem;
+  max-width: 50%;
+  height:auto;
+  margin: 30px;
+  border: 5px dotted #14D020;
+  border-radius: 25px;
+}
+.pledges-amounts-comments h3 {
+  color: #4845C7;
+  font-size: 25px;
+  margin-top: 8px;
+}
+
+/* Pledge Button */
+.pledge-btn {
+  font-family: 'Ubuntu';
+  font-size: large;
+  font-weight: 1000;
+  appearance: none;
+  background-color: transparent;
+  border: 2px solid #14D020;
+  border-radius: 15px;
+  box-sizing: border-box;
+  cursor: pointer;
+  display: inline-block;
+  width: fit-content;
+  line-height: normal;
+  margin: 0;
+  min-height: 40px;
+  min-width: 0;
+  outline: none;
+  padding: 10px 24px;
+  text-align: center;
+  text-decoration: none;
+  transition: all 300ms cubic-bezier(.23, 1, 0.32, 1);
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+  will-change: transform;
+}
+.pledge-btn a {
+  color: #4845c7;
+  text-decoration: none;
+}
+.pledge-btn:hover a {
+  color: #FFFFFF;
+}
+.pledge-btn:hover {
+  background-color: #4845c7;
+  font-weight: bolder;
+  color: #FFFFFF;
+  box-shadow: rgba(0, 0, 0, 0.25) 0 8px 15px;
+}
+.pledge-btn:active {
+  transform: translateY(0);
+}
+
+/* Edit Button */
+.edit-btn {
+  display: inline-block;
+  font-family: 'Ubuntu';
+  appearance: none;
+  background-color: transparent;
+  border: 2px solid #14D020;
+  border-radius: 15px;
+  box-sizing: border-box;
+  cursor: pointer;
+  width: fit-content;
+  font-size: 12px;
+  font-weight: 600;
+  line-height: normal;
+  margin-bottom: 15px;
+  min-height: 40px;
+  min-width: 0;
+  outline: none;
+  padding: 11px 13px;
+  text-align: center;
+  text-decoration: none;
+  transition: all 300ms cubic-bezier(.23, 1, 0.32, 1);
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+  will-change: transform;
+}
+.edit-btn a {
+  color: #4845c7;
+  text-decoration: none;
+
+}
+.edit-btn:hover a {
+  color: #FFFFFF;
+}
+.edit-btn:hover {
+  background-color: #4845c7;
+  font-weight: bolder;
+  box-shadow: rgba(0, 0, 0, 0.25) 0 8px 15px;
+}
+.edit-btn:active {
+  transform: translateY(0);
 }

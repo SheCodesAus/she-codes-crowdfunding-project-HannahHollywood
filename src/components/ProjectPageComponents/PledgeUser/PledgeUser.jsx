@@ -1,5 +1,8 @@
 import React, { useState, useEffect } from "react";
 
+// Styles
+import "./PledgeUser.css";
+
 function PledgeUser({amount, supporter, comment}) {
     // State
     const [supporterData, setSupporterData] = useState();

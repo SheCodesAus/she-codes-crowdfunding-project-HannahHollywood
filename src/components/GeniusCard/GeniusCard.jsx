@@ -13,7 +13,7 @@ function GeniusCard( {userData} ) {
                 <img src={userData.avatar} alt="user avatar"/>
                 <h3>{userData.username}</h3>
             </Link>
-                <h3>{userData.bio}</h3>
+                <h4>{userData.bio}</h4>
          </div>
     );
 }

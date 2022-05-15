@@ -79,6 +79,7 @@ function LoginForm() {
             <h2>Please Try Again</h2>
             </>
           );
+          // Does not allow wrong user to Login, BUT need to fix message (currently not showing)
         }
       else {
         navigate(`/users/${data.id}`);
@@ -90,9 +91,10 @@ function LoginForm() {
   };
 
   return (
+    <>
     <form>
       <div>
-        <label htmlFor="username">Username:</label>
+        <label htmlFor="username">Username: </label>
         <input
           type="text"
           id="username"
@@ -101,7 +103,7 @@ function LoginForm() {
         />
       </div>
       <div>
-        <label htmlFor="password">Password:</label>
+        <label htmlFor="password">Password: </label>
         <input
           type="password"
           id="password"
@@ -112,16 +114,14 @@ function LoginForm() {
       <button className="login-page-btns" type="submit" onClick={handleSubmit}>
         Login
       </button>
-      <br></br>
-    
-    <br></br>
-    <div>
+    </form>
+
+    <div className="sign-up-section">
       <h3>Don't have an account?</h3>
       <p>Sign up Below <span role="img" aria-label="Pointing Down">👇</span></p>
       <button className="login-page-btns"><Link to="/users/register/">Create Account</Link></button>
     </div>
-
-    </form>
+    </>
   );
 }
 

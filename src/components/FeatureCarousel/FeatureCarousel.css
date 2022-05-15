@@ -96,6 +96,11 @@ div.feature-div {
     padding: 4px;
 }
 
+.feature-div a {
+    text-decoration: none;
+    color: #FFFF;
+}
+
 .feature-div {
     /* z-index: 3; */
     background: none;
@@ -109,4 +114,17 @@ div.feature-div {
     border-radius: .25rem;
     padding: 30px;
     background-color: rgba(0, 0, 0, .1);
+}
+
+.purchase-link {
+    text-decoration: none;
+    color: #4845C7;
+}
+
+.feature-title span {
+    color: #4845C7;
+}
+
+.feature-txt span {
+    color: #4845C7;
 }

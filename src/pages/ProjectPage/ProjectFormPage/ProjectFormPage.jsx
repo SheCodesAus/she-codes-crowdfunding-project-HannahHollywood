@@ -3,6 +3,9 @@ import React from "react";
 // Components
 import ProjectForm from "../../../components/ProjectForm/ProjectForm";
 
+// Styles
+import "./ProjectFormPage.css";
+
 function ProjectFormPage() {
     return (
     <>
@@ -13,8 +16,8 @@ function ProjectFormPage() {
         </div>
         
         <div className="categories">
-            <h1>Type to Select from the Following 14 Categories:</h1>
-            <h2>Genius Categories:</h2>
+            <h2>Type one of the Following 14 Categories:</h2>
+            <h3>Genius Categories:</h3>
                 <ul>
                     <li>Diabolical</li>
                     <li>Whimsical</li>
@@ -24,7 +27,8 @@ function ProjectFormPage() {
                     <li>Weaponry</li>
                     <li>Evil</li>
                 </ul>
-            <h2>"Normie" Categories</h2>
+            <br></br>
+            <h3>"Normie" Categories</h3>
                 <ul>
                     <li>Music</li>
                     <li>Food</li>

@@ -14,8 +14,8 @@ function ProjectCard( {projectData} ) {
                 <img src={projectData.image} alt="the project"/>
                 <h3>{projectData.title}</h3>
             </Link>
-            <h3><span role="img" aria-label="Pen">✏️</span> <ProjectOwner owner={projectData.owner}/></h3>
-            <h3><span role="img" aria-label="Tool">🛠</span> ({projectData.category})</h3>
+            <Link to={`/users/${projectData.owner}`}><h4><span role="img" aria-label="Pen">✏️</span> <ProjectOwner owner={projectData.owner}/></h4></Link>
+            <Link to={`/category/${projectData.category}`}><h3 id="category"><span role="img" aria-label="Tool">🛠</span> ({projectData.category})</h3></Link>
          </div>
     );
 }

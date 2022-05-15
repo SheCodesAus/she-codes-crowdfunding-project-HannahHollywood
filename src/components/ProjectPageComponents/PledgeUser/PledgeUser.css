@@ -1,0 +1,8 @@
+#pledges-and-comments {
+    list-style-type: none;
+    width: fit-content;
+    border: 1px dotted #4845c7;
+    border-radius: 25px;
+    padding: 8px;
+    margin: 8px;
+}

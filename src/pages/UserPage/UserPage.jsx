@@ -67,10 +67,10 @@ function UserPage() {
             <div className="user-profile-info">
                 <ul className="user-input">
                     <li><img className="avatar" src={userData.avatar} alt="profile avatar"/></li>
-                    <li id="email"><i class="fa fa-envelope"></i> {userData.email}</li>
+                    <li id="email"><i className="fa fa-envelope"></i> {userData.email}</li>
                     <li id="website">Follow Me:<br></br>
                         <a href={userData.website} target="_blank" rel="noopener noreferrer">
-                            <i class="fa fa-globe"></i>
+                            <i className="fa fa-globe"></i>
                         </a>                
                     </li>
                 </ul>

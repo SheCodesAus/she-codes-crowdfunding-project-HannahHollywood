@@ -62,23 +62,24 @@ function ProjectPage() {
     // Normal State
     return (
     <div className="project-wrapper">
-        <div id="project-title-and-owner">
+        <div className="project-title-and-owner">
             <h2>{projectData.title}</h2> 
-            <h3>Invented by: <ProjectOwner owner={projectData.owner} /> on {new Date(projectData.date_created).toDateString()}</h3>
+            <h3>Invented by: <span><ProjectOwner owner={projectData.owner} /></span></h3>
+            <h4>{new Date(projectData.date_created).toDateString()}</h4>
         </div>
         
         <div className="project-details">
                 <img className="project-img" src={projectData.image} alt="project img"/>
+                <h3 id="description">{projectData.description}</h3>
                 <ul>
-                    <li>{projectData.description}</li>
-                    <li>Invention Category: {projectData.category}</li>
-                    <li>Donation Goal: ${projectData.goal}</li>
-                    <li>Closing Date: {new Date(projectData.closing_date).toDateString()}</li>
+                    <li><span>Invention Category:</span> <br></br>{projectData.category}</li>
+                    <li><span>Donation Goal:</span> <br></br>${projectData.goal}</li>
+                    <li><span>Closing Date:</span> <br></br>{new Date(projectData.closing_date).toDateString()}</li>
                 </ul>
         </div>
 
         <div className="pledges-total">
-            <h3>Total <span role="img" aria-label="money">💰</span>Inventi-Cents<span role="img" aria-label="money">💰</span> Raised: ${projectPledgeAmount}</h3>
+            <h3>Total <span role="img" aria-label="money">💰</span><span>Inventi-Cents</span><span role="img" aria-label="money">💰</span> Raised: <br></br><span>${projectPledgeAmount}</span></h3>
             
             <ProgressBar completed={projectGoalPercentage} bgcolor={"#14D020"} />
             
@@ -91,10 +92,8 @@ function ProjectPage() {
                     ? "Currently Accepting Inventi-Cents! 💰"
                     : "We made a lot of money, please give more though 👀"
                 : "Invention has been built."}</h3>
-        </div>
-
-        <div>
-            <button><Link to={`/pledges/${id}`}>Pledge Inventi-Cents Here!</Link></button>
+            <br></br>
+            <button className="pledge-btn"><Link to={`/pledges/${id}`}>Pledge Inventi-Cents Here!</Link></button>
         </div>
 
         <div className="pledges-amounts-comments">
@@ -113,7 +112,7 @@ function ProjectPage() {
             </ul>
         </div>
 
-        <button><Link to={`/projects/edit-invention/${projectData.id}`}>EDIT YOUR INVENTION</Link></button>
+        <button className="edit-btn"><Link to={`/projects/edit-invention/${projectData.id}`}>Edit Your Invention</Link></button>
     </div>
     );
 }

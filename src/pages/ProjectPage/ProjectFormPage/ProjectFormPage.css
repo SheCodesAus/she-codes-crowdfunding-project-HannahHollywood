@@ -1,0 +1,25 @@
+#project-form h1 {
+    color: #4845c7;
+    padding-top: 10px;
+    padding-bottom: 5px;
+    text-align: center;
+}
+
+.categories {
+    text-align: center;
+    margin-top: 10px;
+}
+
+.categories h2 {
+    font-size: 15px;
+    margin-bottom: 5px;
+}
+
+.categories h3 {
+    font-size: 13px;
+    color: #4845c7;
+}
+
+.categories ul {
+    font-size: 11px;
+}

@@ -7,3 +7,26 @@
     padding: 10px;
     line-height: 3rem;
 }
+
+.notfound-page-container h1 {
+    color: red;
+}
+
+.notfound-page-container span {
+    color: #4845C7
+}
+
+.notfound-page-container h3 {
+    font-size: small;
+}
+
+.notfound-page-container img {
+    width: 30rem;
+    border: 5px solid #4845C7;
+    border-radius: 25px;
+  }
+
+.notfound-page-container a {
+    text-decoration: underline;
+    color: #14D020;
+}

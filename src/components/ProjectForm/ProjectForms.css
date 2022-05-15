@@ -1,19 +1,6 @@
-form {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    line-height: 2rem;
-    padding-bottom: 10px;
-}
 
-form h3 {
-    color: #4845c7;
-    padding-top: 10px;
-    padding-bottom: 10px;
-}
-
-.login-page-btns {
+/* Edit Button */
+.post-project-btn {
     color: #4845c7;
     padding-top: 10px;
     font-family: 'Ubuntu';
@@ -28,7 +15,7 @@ form h3 {
     display: inline-block;
     width: fit-content;
     line-height: normal;
-    margin: 6px;
+    margin-top: 12px;
     min-height: 40px;
     min-width: 0;
     outline: none;
@@ -41,19 +28,19 @@ form h3 {
     touch-action: manipulation;
     will-change: transform;
   }
-  .login-page-btns a {
+  .post-project-btn a {
     color: #4845c7;
     text-decoration: none;
   }
-  .login-page-btns:hover a {
+  .post-project-btn:hover a {
     color: #FFFFFF;
   }
-  .login-page-btns:hover {
+  .post-project-btn:hover {
     background-color: #4845c7;
     font-weight: bolder;
     color: #FFFFFF;
     box-shadow: rgba(0, 0, 0, 0.25) 0 8px 15px;
   }
-  .login-page-btns:active {
+  .post-project-btn:active {
     transform: translateY(0);
   }

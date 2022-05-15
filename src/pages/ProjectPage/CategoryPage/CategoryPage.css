@@ -1,0 +1,13 @@
+.category-pg-container {
+    text-align: center;
+    color: #4845C7;
+}
+
+.category-pg-container h1 {
+    padding-top: 10px;
+    padding-bottom: 20px;
+}
+
+.category-pg-container span {
+    color: #00B912;
+}

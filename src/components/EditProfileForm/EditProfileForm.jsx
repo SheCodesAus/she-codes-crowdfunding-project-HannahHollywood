@@ -1,8 +1,10 @@
 import React, { useState } from "react";
 
-
 // Imports
 import { useNavigate } from "react-router-dom";
+
+// Styles
+import './EditProfileForm.css';
 
 function EditProfileForm({user}) {
   // State
@@ -60,7 +62,7 @@ function EditProfileForm({user}) {
         <div className="form">
         <form>
             <div className="form-item">
-                <label htmlFor="username">Username:</label>
+                <label htmlFor="username">Username: </label>
                 <input
                     type="text"
                     id="username"
@@ -69,7 +71,7 @@ function EditProfileForm({user}) {
                 />
             </div>
             <div className="form-item">
-                <label htmlFor="email">Email:</label>
+                <label htmlFor="email">Email: </label>
                 <input
                     type="text"
                     id="email"
@@ -78,7 +80,7 @@ function EditProfileForm({user}) {
                 />
             </div>
             <div className="form-item">
-                <label htmlFor="avatar">Avatar:</label>
+                <label htmlFor="avatar">Avatar: </label>
                 <input
                     type="url"
                     id="avatar"
@@ -87,7 +89,7 @@ function EditProfileForm({user}) {
                 />
             </div>
             <div className="form-item">
-                <label htmlFor="bio">Bio:</label>
+                <label htmlFor="bio">Bio: </label>
                 <input
                     type="text"
                     id="bio"
@@ -96,7 +98,7 @@ function EditProfileForm({user}) {
                 />
             </div>
             <div className="form-item">
-                <label htmlFor="website">Website:</label>
+                <label htmlFor="website">Website: </label>
                 <input
                     type="url"
                     id="website"
@@ -105,10 +107,12 @@ function EditProfileForm({user}) {
                 />
             </div>
             <div className="form-item">
-              <button type="submit" onClick={handleSubmit}>
-              Update Profile
-            </button>
             </div>
+        <div className="edit-button-div">
+            <button className="edit-profile-button" type="submit" onClick={handleSubmit}>
+                Update Profile
+            </button>
+        </div>
         </form>
         </div> 
         )

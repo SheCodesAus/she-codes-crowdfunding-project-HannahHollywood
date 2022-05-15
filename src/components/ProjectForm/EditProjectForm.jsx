@@ -1,8 +1,10 @@
 import React, { useState } from "react";
 
-
 // Imports
 import { useNavigate } from "react-router-dom";
+
+// Styles
+import './ProjectForms.css';
 
 function EditProjectForm({project, categories}) {
   // State
@@ -60,10 +62,9 @@ function EditProjectForm({project, categories}) {
 
 
     return (
-        <div className="form">
         <form>
             <div className="form-item">
-                <label htmlFor="title">Title:</label>
+                <label htmlFor="title">Title: </label>
                 <input
                     type="text"
                     id="title"
@@ -72,7 +73,7 @@ function EditProjectForm({project, categories}) {
                 />
             </div>
             <div className="form-item">
-                <label htmlFor="description">Description:</label>
+                <label htmlFor="description">Description: </label>
                 <input
                     type="text"
                     id="description"
@@ -81,7 +82,7 @@ function EditProjectForm({project, categories}) {
                 />
             </div>
             <div className="form-item">
-                <label htmlFor="goal">Goal:</label>
+                <label htmlFor="goal">Goal: </label>
                 <input
                     type="number"
                     id="goal"
@@ -90,7 +91,7 @@ function EditProjectForm({project, categories}) {
                 />
             </div>
             <div className="form-item">
-                <label htmlFor="image">Image:</label>
+                <label htmlFor="image">Image: </label>
                 <input
                     type="url"
                     id="image"
@@ -99,7 +100,7 @@ function EditProjectForm({project, categories}) {
                 />
             </div>
             <div className="form-item">
-                <label htmlFor="is_open">Open:</label>
+                <label htmlFor="is_open">Open: </label>
                 <input
                     type="checkbox"
                     id="is_open"
@@ -108,7 +109,7 @@ function EditProjectForm({project, categories}) {
                 />
             </div>
             <div className="form-item">
-                <label htmlFor="date_created">Date Created:</label>
+                <label htmlFor="date_created">Date Created: </label>
                 <input
                     type="date"
                     id="date_created"
@@ -117,7 +118,7 @@ function EditProjectForm({project, categories}) {
                 />
             </div>
             <div className="form-item">
-                <label htmlFor="category">Update Category:</label>
+                <label htmlFor="category">Update Category: </label>
                 <input
                     type="select"
                     id="category"
@@ -126,7 +127,7 @@ function EditProjectForm({project, categories}) {
                 />
             </div>
             <div className="form-item">
-                <label htmlFor="closing_date">Closing Date:</label>
+                <label htmlFor="closing_date">Closing Date: </label>
                 <input
                     type="date"
                     id="closing_date"
@@ -135,12 +136,11 @@ function EditProjectForm({project, categories}) {
                 />
             </div>
             <div className="form-item">
-            <button type="submit" onClick={handleSubmit}>
-            Update Invention
+            <button className="post-project-btn" type="submit" onClick={handleSubmit}>
+                Update Invention
             </button>
             </div>
         </form>
-        </div> 
         )
     }
 

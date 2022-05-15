@@ -1,0 +1,11 @@
+#project-list {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+
+#intro-text h1 {
+  color: #4845c7;
+  padding-top: 10px;
+  padding-bottom: 10px;
+}

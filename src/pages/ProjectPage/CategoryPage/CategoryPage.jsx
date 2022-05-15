@@ -4,6 +4,9 @@ import { useParams } from "react-router-dom";
 // Components
 import ProjectCard from "../../../components/ProjectCard/ProjectCard";
 
+// Styles
+import "./CategoryPage.css";
+
 function CategoryPage() {
 
     // State
@@ -33,18 +36,21 @@ function CategoryPage() {
     // Normal State
     return (
         <>
-        {projectList && projectList.length > 0 
-            ?   <div id="project-list">
-                    {projectList.map((projectData) => {
-                        return (
-                            <ProjectCard 
-                            key={`project-${projectData.id}`} 
-                            projectData={projectData} />
-                        );
-                    })}
-                </div>
-            : <h3>No Projects in that Category</h3>
-        }
+        <div className="category-pg-container">
+            <h1>Invention Category: <span>{slug}</span> ⚛︎</h1>
+            {projectList && projectList.length > 0 
+                ?   <div id="project-list">
+                        {projectList.map((projectData) => {
+                            return (
+                                <ProjectCard 
+                                key={`project-${projectData.id}`} 
+                                projectData={projectData} />
+                            );
+                        })}
+                    </div>
+                : <h3>No Projects in that Category</h3>
+            }
+        </div>
         </>
         
     );

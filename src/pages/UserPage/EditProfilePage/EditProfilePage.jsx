@@ -4,6 +4,9 @@ import { useParams } from "react-router-dom";
 //Components
 import EditProfileForm from "../../../components/EditProfileForm/EditProfileForm";
 
+// Styles
+import "./EditProfilePage.css";
+
 function EditProfilePage(){
     // State
     const [userData, setUserData] = useState();
@@ -33,9 +36,9 @@ function EditProfilePage(){
         <>
         <div className="edit-act-container">
             <div id="editprofile-form">
-                    <h1 className="edit-account-title">Edit Your Your Profile ⚛︎</h1>
-                    <EditProfileForm user={userData} />
+                    <h1>Edit Your Your Profile ⚛︎</h1>
             </div>
+            <EditProfileForm user={userData} />
         </div>
         </>
     );

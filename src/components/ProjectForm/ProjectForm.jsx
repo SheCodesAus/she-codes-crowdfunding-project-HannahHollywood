@@ -3,6 +3,9 @@ import React, { useState } from "react";
 // Imports
 import { useNavigate } from "react-router-dom";
 
+// Styles
+import './ProjectForms.css';
+
 function ProjectForm(projectData) {
   // State
   const [project, postProject] = useState(
@@ -63,49 +66,49 @@ function ProjectForm(projectData) {
   const formFields = [
     {
        id: "title",
-       label: "Title",
+       label: "Title: ",
        placeholder: "Enter Title",
        type: "text",
     },
     {
         id: "description",
-        label: "Description",
+        label: "Description: ",
         placeholder: "Enter Description",
         type: "text",
     },
     {
         id: "goal",
-        label: "Goal",
+        label: "Goal: ",
         placeholder: "Enter Goal",
         type: "text",
     },
     {
         id: "image",
-        label: "Image",
+        label: "Image: ",
         placeholder: "Enter Image",
         type: "url",
     },
         {
        id: "is_open",
-       label: "Is open",
+       label: "Open: ",
        placeholder: "Enter if Project Open",
        type: "checkbox",
     },
     {
         id: "date_created",
-        label: "Date created",
+        label: "Date Created: ",
         placeholder: "Select Date",
         type: "date",
     },
     {
         id: "category",
-        label: "Category",
+        label: "Category: ",
         placeholder: "Enter category",
         type: "text",
     },
     {
         id: "closing_date",
-        label: "Closing date",
+        label: "Closing Date: ",
         placeholder: "Select Closing Date",
         type: "date",
     },
@@ -128,7 +131,7 @@ function ProjectForm(projectData) {
                 </div>
                 )
             })}
-            <button type="submit" onClick={handleSubmit}>
+            <button className="post-project-btn" type="submit" onClick={handleSubmit}>
             Post Invention
             </button>
         </form>

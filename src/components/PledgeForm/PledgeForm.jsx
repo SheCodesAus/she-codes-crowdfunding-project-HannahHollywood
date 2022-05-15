@@ -59,9 +59,10 @@ function PledgeForm(pledgeData) {
   };
 
     return (
+      <>
         <form>
           <div>
-            <label htmlFor="amount">Enter Amount:</label>
+            <label htmlFor="amount">Enter Amount: </label>
             <input
               type="text"
               id="amount"
@@ -70,7 +71,7 @@ function PledgeForm(pledgeData) {
             />
           </div>
           <div>
-            <label htmlFor="comment">Leave a Comment:</label>
+            <label htmlFor="comment">Leave a Comment: </label>
             <input
               type="text"
               id="comment"
@@ -78,10 +79,11 @@ function PledgeForm(pledgeData) {
               onChange={handleChange}
             />
           </div>
-          <button type="submit" onClick={handleSubmit}>
-            Post Pledge
+          <button className="pledge-btn" type="submit" onClick={handleSubmit}>
+            Donate
           </button>
         </form>
+        </>
       );
 }
 

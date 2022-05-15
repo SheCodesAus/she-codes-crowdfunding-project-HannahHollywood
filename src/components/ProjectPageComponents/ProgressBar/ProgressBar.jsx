@@ -5,10 +5,10 @@ const ProgressBar = (props) => {
   
     const containerStyles = {
       height: 40,
-      width: '50%',
+      width: '60%',
       backgroundColor: "#e0e0de",
       borderRadius: 50,
-      margin: 50
+      margin: 20
     }
   
     const fillerStyles = {

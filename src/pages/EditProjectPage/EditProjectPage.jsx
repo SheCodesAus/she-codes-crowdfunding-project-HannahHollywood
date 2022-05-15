@@ -4,6 +4,9 @@ import { useParams } from "react-router-dom";
 //components
 import EditProjectForm from "../../components/ProjectForm/EditProjectForm";
 
+// Styles
+import './EditProjectPage.css';
+
 function EditProjectPage(){
     // State
     const [projectInfo, setProjectInfo] = useState();
@@ -44,34 +47,34 @@ function EditProjectPage(){
     return (
         <>
         <div className="editproject-form-wrapper">
-            <div id="editproject-form">
+            <div id="project-form">
                     <h1>Edit Your Invention ⚛︎</h1>
                     <EditProjectForm project={projectInfo} categories={categoryData}/>
             </div>
-        </div>
         
-        <div className="categories">
-            <h1>Select from the Following 14 Categories:</h1>
-            <h2>Genius Categories:</h2>
-                <ul>
-                    <li>Diabolical</li>
-                    <li>Whimsical</li>
-                    <li>Experimental</li>
-                    <li>Mischievous</li>
-                    <li>Maniacal</li>
-                    <li>Weaponry</li>
-                    <li>Evil</li>
-                </ul>
-            <h2>"Normie" Categories</h2>
-                <ul>
-                    <li>Music</li>
-                    <li>Food</li>
-                    <li>Animals</li>
-                    <li>Money</li>
-                    <li>Space</li>
-                    <li>Time</li>
-                    <li>Silly</li>
-                </ul>
+            <div className="categories">
+                <h2>Select from the Following 14 Categories:</h2>
+                <h3>Genius Categories:</h3>
+                    <ul>
+                        <li>Diabolical</li>
+                        <li>Whimsical</li>
+                        <li>Experimental</li>
+                        <li>Mischievous</li>
+                        <li>Maniacal</li>
+                        <li>Weaponry</li>
+                        <li>Evil</li>
+                    </ul>
+                <h2>"Normie" Categories</h2>
+                    <ul>
+                        <li>Music</li>
+                        <li>Food</li>
+                        <li>Animals</li>
+                        <li>Money</li>
+                        <li>Space</li>
+                        <li>Time</li>
+                        <li>Silly</li>
+                    </ul>
+            </div>
         </div>
         </>
     );
