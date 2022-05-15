@@ -70,7 +70,7 @@ function RegistrationForm() {
         }
       else {
       // THIS IS HOW YOU NAVIGATE AUTOMATICALLY
-        navigate(`/users/${data.id}`);
+        navigate(`/users/${data.data.id}`);
       }
       } catch (err) {
         console.log(err);

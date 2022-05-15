@@ -70,7 +70,7 @@ function LoginForm() {
         console.log(data)
 
         window.localStorage.setItem("token", data.token);
-        window.localStorage.setItem("username", credentials.username);
+        window.localStorage.setItem("id", data.id);
         if (data.token===undefined) {
           console.log("invalid credentials")
           return (
@@ -81,7 +81,7 @@ function LoginForm() {
           );
           // Does not allow wrong user to Login, BUT need to fix message (currently not showing)
         }
-      else {
+        else {
         navigate(`/users/${data.id}`);
       }
       } catch (err) {

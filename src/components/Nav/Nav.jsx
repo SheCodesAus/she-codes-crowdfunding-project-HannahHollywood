@@ -2,7 +2,6 @@
 import React, { useState } from "react";
 import { Button } from "./Button/Button";
 import { Link, useNavigate } from "react-router-dom";
-// import { useParams } from "react-router-dom";
 
 // Styles
 import "./Nav.css";
@@ -12,25 +11,6 @@ function Nav() {
     // Hamburger State
     const [isMenuExpanded, setMenuExpanded] = useState(false);
 
-    // // Below: Attempting to get 'Profile' Link to work...
-    // const [userData, setUserData] = useState();
-
-    // Hooks
-    // const { id } = useParams();
-
-    // Actions & Helpers
-    // Below: Attempting to get 'Profile' Link to work...
-    // useEffect(() => {
-    //     fetch(`${process.env.REACT_APP_API_URL}users/${id}`)
-    //     .then((results) => {
-    //         return results.json();
-    //     })
-    //     .then((data) => {
-    //         setUserData(data);
-    //     })
-    // }, [userData]);
-
-
     // Navigation Links
     const navigate = useNavigate();
 
@@ -38,9 +18,10 @@ function Nav() {
         navigate("/login/")
     }
 
-    // const navigateToProfile = () => {
-    //     navigate(`users/${userData}`)
-    // }
+    const navigateToProfile = () => {
+        let id = window.localStorage.getItem("id")
+        navigate(`users/${id}`)
+    }
 
     const navigateToSignUp = () => {
         navigate("users/register")
@@ -87,7 +68,7 @@ function Nav() {
     const profileLink = (profileLinkVisible) => {
         const authenticatedUser = window.localStorage.getItem("token");
 
-        const profileButton = <i className="profile-link">Profile</i>;
+        const profileButton = <button className="nav-links" onClick={navigateToProfile}>Profile</button>;
         const signUpButton = <button className="nav-links" onClick={navigateToSignUp}>Sign Up</button>;
 
         if (profileLinkVisible) {
