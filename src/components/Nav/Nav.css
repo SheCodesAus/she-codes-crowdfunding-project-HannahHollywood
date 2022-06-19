@@ -17,7 +17,12 @@
 .navbar-logo span {
     color: #4845c7;
 }
+/* .navbar-logo span2 {
+    color: #4845c7;
+    font-size: 2rem;
+} */
 .fa-robot {
+    /* color: black; */
     color: #4845c7;
 }
 

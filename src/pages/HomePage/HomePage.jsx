@@ -14,6 +14,10 @@ function HomePage() {
     // States
     const [projectData, setProjectData] = useState();
 
+    // Check a User is Logged In:
+    const token = window.localStorage.getItem("token");
+    const isUserLoggedin = !(token === null || token === undefined || token === "undefined")
+
     // Action & Helpers
     useEffect(() => {
         fetch(`${process.env.REACT_APP_API_URL}projects/`)
@@ -36,11 +40,12 @@ function HomePage() {
                 <p id="intro-text">
                     Have some brilliant ideas of your own?!<span role="img" aria-label="Evil">😈</span>
                     <br></br>
-                    Create an Account, Post your Invention and watch the Inventi-Cents roll in!
+                    Watch the Inventi-Cents roll in on The Fund-Inator!
                 </p>
-                <br></br>
+
                 <p>
-                    <button className="create-invention-btn"><Link to="/projects/create/">Create Your Invention</Link></button>
+                {(isUserLoggedin) &&
+                    <button className="create-invention-btn"><Link to="/projects/create/">Create Your Invention</Link></button>}
                 </p>
             </div>
         </div>

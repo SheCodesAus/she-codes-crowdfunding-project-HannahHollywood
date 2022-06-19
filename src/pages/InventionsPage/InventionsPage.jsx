@@ -6,10 +6,17 @@ import ProjectCard from "../../components/ProjectCard/ProjectCard";
 // Styles
 import './InventionsPage.css';
 
+// Imports
+import { Link } from "react-router-dom";
+
 function InventionsPage() {
 
     // States
     const [projectList, setProjectList] = useState([]);
+
+    // Check a User is Logged In:
+    const token = window.localStorage.getItem("token");
+    const isUserLoggedin = !(token === null || token === undefined || token === "undefined")
 
     // Action & Helpers
     useEffect(() => {
@@ -26,6 +33,9 @@ function InventionsPage() {
         <div className="inventions-page-wrapper">
             <div id="intro-text">
                 <h1>View all Inventions Here! ⚛︎</h1>
+
+            {(isUserLoggedin) &&
+                <button className="create-invention-btn"><Link to="/projects/create/">Create Invention</Link></button>}
             </div>
 
             <div id="project-list">

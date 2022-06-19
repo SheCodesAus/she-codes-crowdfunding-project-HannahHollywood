@@ -2,7 +2,13 @@
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
+    text-align: center;
   }
+
+#intro-text {
+  text-align: center;
+  margin-bottom: 10px;
+}
 
 #intro-text h1 {
   color: #4845c7;

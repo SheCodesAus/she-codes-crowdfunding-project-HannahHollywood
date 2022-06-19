@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
+// import { useNavigate } from "react-router-dom";
 
 //components
 import EditProjectForm from "../../components/ProjectForm/EditProjectForm";
@@ -14,7 +15,15 @@ function EditProjectPage(){
 
     //Hooks
     const { id } = useParams();
+    // const navigate = useNavigate();
 
+    // Check correct User is editing invention
+    // const UserId = window.localStorage.getItem("id");
+    // const isOwner = (UserId == projectInfo.owner)
+
+    // if (!isOwner) {
+    //     navigate(`/projects/`);
+    // }
 
     // network in use effect
     useEffect(() => {
@@ -37,7 +46,7 @@ function EditProjectPage(){
                     setCategoryData(data);
                 });
 
-    }, []);
+    }, [id]);
 
     if (!projectInfo) {
         return <h1>Loading...</h1>

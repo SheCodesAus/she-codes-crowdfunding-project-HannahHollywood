@@ -10,9 +10,16 @@ function PledgeForm(pledgeData) {
     pledgeData.map
   );
 
-  // // Hooks
+  // Hooks
   const { id } = useParams();
   const navigate = useNavigate();
+
+  const token = window.localStorage.getItem("token");
+  const isUserLoggedin = !(token === null || token === undefined || token === "undefined")
+
+  if (!isUserLoggedin) {
+        navigate(`/login/`);
+    }
 
   // Actions and Helpers
   const handleChange = (event) => {

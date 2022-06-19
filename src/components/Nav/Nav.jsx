@@ -32,6 +32,8 @@ function Nav() {
         // It is assumed that a token belongs to a user who is logged in
         // so to sign a user out we will remove these from local storage
         window.localStorage.removeItem("token");
+        window.localStorage.removeItem("id");
+        window.localStorage.removeItem("username");
 
         // Make sure we navigate back to login page
         navigateToLogin()

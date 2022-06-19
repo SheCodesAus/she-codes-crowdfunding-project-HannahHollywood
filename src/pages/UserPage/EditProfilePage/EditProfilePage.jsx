@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 
 //Components
 import EditProfileForm from "../../../components/EditProfileForm/EditProfileForm";
@@ -11,8 +12,16 @@ function EditProfilePage(){
     // State
     const [userData, setUserData] = useState();
 
-    //Hooks
+    // Hooks
     const { id } = useParams();
+    const navigate = useNavigate();
+
+    const UserId = window.localStorage.getItem("id");
+    const IsLoggedInUser = (UserId === id);
+
+    if (!IsLoggedInUser) {
+        navigate(`/users/${id}`);
+    }
 
     // network in use effect
     useEffect(() => {
@@ -25,7 +34,7 @@ function EditProfilePage(){
         .then((user) => {
         setUserData(user);
         });
-    }, []);
+    }, [id]);
 
     if (!userData) {
         return <h1>Loading...</h1>

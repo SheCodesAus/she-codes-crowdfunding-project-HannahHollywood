@@ -21,7 +21,15 @@ function ProjectPage() {
 
     // Hooks
     const { id } = useParams();
-    
+
+    // // Check Invention creator is LoggedIn
+    // const userName = window.localStorage.getItem("username");
+    // const isOwner = (userName === projectData.owner)
+
+    // Check user is LoggedIn
+    const token = window.localStorage.getItem("token");
+    const isUserLoggedin = !(token === null || token === undefined || token === "undefined")
+
     // Actions & Helpers
     useEffect(() => {
         fetch(`${process.env.REACT_APP_API_URL}projects/${id}`)
@@ -111,8 +119,9 @@ function ProjectPage() {
             })}
             </ul>
         </div>
-
-        <button className="edit-btn"><Link to={`/projects/edit-invention/${projectData.id}`}>Edit Your Invention</Link></button>
+        
+        {(isUserLoggedin) &&
+        <button className="edit-btn"><Link to={`/projects/edit-invention/${projectData.id}`}>Edit Your Invention</Link></button>}
     </div>
     );
 }

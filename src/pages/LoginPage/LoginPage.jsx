@@ -11,6 +11,7 @@ function LoginPage() {
         <>
         <div className="login-container">
             <h1>Login to the Fund-Inator ⚛︎</h1>
+            <h4>(You must be logged-in to Pledge!)</h4>
             <LoginForm />
         </div>
         </>

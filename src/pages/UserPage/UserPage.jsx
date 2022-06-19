@@ -20,6 +20,9 @@ function UserPage() {
     // Hooks
     const { id } = useParams();
 
+    const UserId = window.localStorage.getItem("id");
+    const IsLoggedInUser = (UserId === id);
+
     // Actions & Helpers
     useEffect(() => {
         fetch(`${process.env.REACT_APP_API_URL}users/${id}`)
@@ -42,7 +45,7 @@ function UserPage() {
     // }, []);
 
     useEffect(() => {
-        fetch(`${process.env.REACT_APP_API_URL}/users/badges/`)
+        fetch(`${process.env.REACT_APP_API_URL}/users/badges/${id}`)
         .then((results) => {
             return results.json();
         })
@@ -56,6 +59,8 @@ function UserPage() {
         return <h3>Loading profile...</h3>;
 
     }
+
+    // function badgeType(badges) {return badges.badge_type};
 
     // Normal State
     return (
@@ -87,7 +92,8 @@ function UserPage() {
                     {userData.badges.map((badgeIconData, key) => {
                         return (
                             <BadgesIcon 
-                                key={`/badges-${badgeIconData.id}`} 
+                                key={`/badges-${badgeIconData.id}`}
+                                // badgeIconData={badgeIconData}
                                 image={badgeIconData.image} 
                                 description={badgeIconData.description} 
                             />
@@ -97,7 +103,8 @@ function UserPage() {
             </div>
 
             <div className="edit-button-div">
-                <button className="edit-profile-button"><Link to="edit-profile">Edit Profile</Link></button>
+            {(IsLoggedInUser) &&
+                <button className="edit-profile-button"><Link to="edit-profile">Edit Profile</Link></button>}
             </div>
         {/* <div className="user-invention-list">
             <h1>View all of {userData.username}'s Inventions</h1>

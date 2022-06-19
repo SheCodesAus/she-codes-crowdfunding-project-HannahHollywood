@@ -31,7 +31,7 @@ function FeatureCarousel() {
                 <button className="carousel-button next" data-carousel-button="next">&#x3e;</button>
 
                 <ul data-slides>
-                    <li className="slide" data-active>
+                    <li className="slide">
                         <Link to="/category/Diabolical"><img className="featured-image" src={`${process.env.PUBLIC_URL}/assets/images/DocBrown.png`} alt="scientist"/></Link>
                         <div className="feature-div">
                             <h2 className="feature-title"><span>
